@@ -1,3 +1,103 @@
-@startuml TODOL
+@startuml TaskerApp
+
+class APP{
+    - usuario: Usuario
+    - tarea: LISTA <Tarea>
+
+    - completada: LISTA <Tarea>
+    
+    + ordenamiento()
+    + busqueda()
+}
+
+class Usuario{
+    -nombre:string
+    - tarea
+}
+
+class Solicitud {
+    + validarSolicitud(Tarea)
+}
+
+'ver si es clase abstracta o anormal
+
+abstract Tarea{
+    - titulo: string
+    - descripción: string
+    - fechaDeVencimiento: number
+    - prioridad: number
+    - categoria:string
+    - etiqueta:string
+    - porcentajeDeAvance: number
+
+    +crearTarea()
+    +editarTarea()
+    +eliminarTarea()
+
+}
+
+class Crear extends Tarea{
+    + crearTarea()
+}
+
+class Editar extends Tarea{
+    + editarTarea()
+}
+
+class Eliminar extends Tarea{
+    + eliminarTarea()
+}
+
+interface Busqueda{
+    + busqueda();
+        //SearchList
+
+}
+
+interface Ordenamiento{
+    + ordenamiento();
+        //SortList
+}
+
+class LISTA{
+    - head: MyNode<T>;
+    + insertOrdered(value: Tarea): MyNode<Tarea>
+}
+
+class MyNode<Tarea>{
+    - value: T
+    - next: MyNode<T>
+
+    + getter&setter()
+
+}
+
+APP o.. Solicitud
+APP o.. Usuario
+
+Solicitud *-r- Usuario
+Solicitud *-d- Tarea
+
+Busqueda .. Usuario
+Ordenamiento .. Usuario
+
+LISTA *-- MyNode
+
+Tarea *-l-* MyNode
 
 @enduml
+
+/*
+Creación, edición y eliminación de tareas
+
+Los usuarios deben poder añadir fácilmente nuevas tareas a la aplicación.
+
+Las tareas deben tener la opción de incluir un título, una descripción,
+una fecha de vencimiento, un nivel de prioridad y
+cualquier etiqueta o categoría relevante.
+
+Los usuarios deben poder editar las tareas existentes para modificar sus detalles,
+cargar el porcentaje de avance(0, 25, 50, 75 o 100) o marcarlas como completadas.
+
+La aplicación debe permitir a los usuarios eliminar las tareas que ya no sean relevantes.
+*/
