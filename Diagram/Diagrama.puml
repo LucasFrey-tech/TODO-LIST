@@ -10,18 +10,13 @@ class APP{
     + busqueda()
 }
 
-class Usuario{
-    -nombre:string
-    - tarea
-}
-
 class Solicitud {
     + validarSolicitud(Tarea)
 }
 
 'ver si es clase abstracta o anormal
 
-abstract Tarea{
+class Tarea{
     - titulo: string
     - descripción: string
     - fechaDeVencimiento: number
@@ -75,11 +70,11 @@ class MyNode<Tarea>{
 APP o.. Solicitud
 APP o.. Usuario
 
-Solicitud *-r- Usuario
+
 Solicitud *-d- Tarea
 
-Busqueda .. Usuario
-Ordenamiento .. Usuario
+'Busqueda -- 
+'Ordenamiento--
 
 LISTA *-- MyNode
 
