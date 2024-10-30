@@ -12,17 +12,19 @@ export default class APP implements Busqueda {
     }
 
 
-    public busqueda(parametro: string): MyNode<Tarea> | null {
-        let actual = this.lista.head;
+    public busqueda(parametro: string | number): MyNode<Tarea> | null {
+        let actual = this.lista.getHead();
 
         while (actual) {
             const tarea = actual.value;
-            
-            // Comparar con 'titulo' si el parámetro es string
-            if (tarea.titulo === parametro) {
-                return actual;
-            }
 
+            // Usar getTitulo() y getFechaVec() para comparar
+            if (
+                (typeof parametro === "string" && tarea.getTitulo() === parametro) ||
+                (typeof parametro === "number" && tarea.getFechaVec() === parametro)
+            ) {
+                return actual; // Devuelve el nodo si se encuentra el valor
+            }
 
             actual = actual.next;
         }

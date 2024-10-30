@@ -1,7 +1,7 @@
 import MyNode from "./Node";
 
 export default class Lista<T> {
-    public head: MyNode<T>;
+    private head: MyNode<T>;
     constructor() {
         this.head = undefined as unknown as MyNode<T>;
     }

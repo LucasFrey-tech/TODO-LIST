@@ -1,8 +1,8 @@
 export default class Tarea{
 
-    public titulo:string;
+    private titulo:string;
     private descripcion:string;
-    public fechaVec:number;
+    private fechaVec:number;
 
     
     constructor(titulo:string, descripcion:string, fecha:number){

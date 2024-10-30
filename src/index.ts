@@ -27,7 +27,7 @@ function main(){
 //    const nodoEncontrado1 = aplicacion.busqueda("AAA");
 //    console.log(nodoEncontrado1 ? `Nodo encontrado: ${nodoEncontrado1.value.titulo}` : "Nodo no encontrado");
 
-    console.log(aplicacion.busqueda("AAA"));
+    console.log(aplicacion.busqueda("AAAA")?.value);
 
 
     /*
