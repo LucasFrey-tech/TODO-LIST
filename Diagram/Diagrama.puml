@@ -1,7 +1,6 @@
 @startuml TaskerApp
 
 class APP{
-    - usuario: Usuario
     - tarea: LISTA <Tarea>
 
     - completada: LISTA <Tarea>
@@ -68,7 +67,6 @@ class MyNode<Tarea>{
 }
 
 APP o.. Solicitud
-APP o.. Usuario
 
 
 Solicitud *-d- Tarea
