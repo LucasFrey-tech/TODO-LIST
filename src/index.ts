@@ -22,16 +22,12 @@ function main(){
     console.log();
     console.log();
 
-    
-
-//    const nodoEncontrado1 = aplicacion.busqueda("AAA");
-//    console.log(nodoEncontrado1 ? `Nodo encontrado: ${nodoEncontrado1.value.titulo}` : "Nodo no encontrado");
-
     console.log(aplicacion.busqueda("AAAA")?.value);
+    console.log(aplicacion.busqueda(20221103)?.value);
 
 
     /*
-    ${JSON.stringify(figuras[i].calcularTodo())}`);
+
         Usuario {
 
             "TITULO",

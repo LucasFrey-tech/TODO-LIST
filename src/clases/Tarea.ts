@@ -20,6 +20,7 @@ export default class Tarea{
     public getTitulo(): string{
         return this.titulo;
     }
+    
     public getFechaVec():number {
         return this.fechaVec;
     }

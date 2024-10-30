@@ -1,4 +1,5 @@
 import { Busqueda } from "../interfaz/busqueda";
+import { Ordenamiento } from "../interfaz/ordenamiento";
 import Lista from "../Listas/Lista";
 import MyNode from "../Listas/Node";
 import Tarea from "./Tarea";
@@ -12,45 +13,51 @@ export default class APP implements Busqueda {
     }
 
 
+
     public busqueda(parametro: string | number): MyNode<Tarea> | null {
-        let actual = this.lista.getHead();
+        let nodoActual = this.lista.getHead();
 
-        while (actual) {
-            const tarea = actual.value;
+        while (nodoActual) {
+            const tarea = nodoActual.value;
 
-            // Usar getTitulo() y getFechaVec() para comparar
-            if (
-                (typeof parametro === "string" && tarea.getTitulo() === parametro) ||
-                (typeof parametro === "number" && tarea.getFechaVec() === parametro)
-            ) {
-                return actual; // Devuelve el nodo si se encuentra el valor
+            if ((typeof parametro === "string" && tarea.getTitulo() === parametro) || (typeof parametro === "number" && tarea.getFechaVec() === parametro)) {
+                return nodoActual;
             }
 
-            actual = actual.next;
+            nodoActual = nodoActual.next;
         }
-
-        return null; // Retorna null si no se encuentra el valor
+        return null;
     }
+
 }
+
+/*PREGUNTAS
+    buscar alternativa de typeof, sabemos que no va pero fucna
+    ver la opcion de implementar 2 tipos de busqaueda
+    una por titulo
+    una por fecha
+
+    aplicar sobrecarga
+*/
+
 /*
+    public insertOrdered(value: T): MyNode<T> {
+        const node = new MyNode(value);
+        let headAux = this.head;
+        let previous: MyNode<T> = undefined as unknown as MyNode<T>;
 
-    public busquedaDD(parametro: string | number): MyNode<Tarea> | null {
-        let actual = this.lista.head;
-
-        while (actual) {
-            const tarea = actual.value;
-
-            // Usar getTitulo() y getFechaVec() para comparar
-            if (
-                (typeof parametro === "string" && tarea.getTitulo() === parametro) ||
-                (typeof parametro === "number" && tarea.getFechaVec() === parametro)
-            ) {
-                return actual; // Devuelve el nodo si se encuentra el valor
-            }
-
-            actual = actual.next;
+        while (headAux && headAux.value < value) {
+            previous = headAux;
+            headAux = headAux.next;
         }
 
-        return null; // Retorna null si no se encuentra el valor
+        if (!previous) {
+            this.head = node;
+        }
+        else {
+            previous.next = node;
+        }
+        node.next = headAux;
+        return node;
     }
 */

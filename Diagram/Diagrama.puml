@@ -67,12 +67,10 @@ class MyNode<Tarea>{
 }
 
 APP o.. Solicitud
-
+APP .u.|> Busqueda
+APP .u.|> Ordenamiento
 
 Solicitud *-d- Tarea
-
-'Busqueda -- 
-'Ordenamiento--
 
 LISTA *-- MyNode
 
