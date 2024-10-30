@@ -6,22 +6,28 @@ import Lista from "./Listas/Lista";
 function main(){
     let lista = new Lista<Tarea>;
     let aplicacion= new APP(lista);
+
     const tarea1 = new Tarea("BBBB", "Repasar clases y objetos", 20241101);
     const tarea2 = new Tarea("AAAA", "COMPRAR PAN", 20241103);
+    const tarea3 = new Tarea("CCCC", "COMPRAR LECHUGA", 20221103);
 
     
     lista.push(tarea1);
     lista.push(tarea2);
+    lista.push(tarea3);
 
     lista.imprimirTodo();
 
-    //titulo 2 este primero
+    console.log("----------------------------------------------------");
+    console.log();
+    console.log();
 
-    lista.sort();
+    
 
-    lista.imprimirTodo();
+//    const nodoEncontrado1 = aplicacion.busqueda("AAA");
+//    console.log(nodoEncontrado1 ? `Nodo encontrado: ${nodoEncontrado1.value.titulo}` : "Nodo no encontrado");
 
-    aplicacion.busqueda(tarea1.getTitulo());
+    console.log(aplicacion.busqueda("AAA"));
 
 
     /*
@@ -46,7 +52,7 @@ function main(){
         push(tarea);
 
         LISTA [
-            tarea{"titulo", "descripcion", fecha},
+            tarea1{"titulo", "descripcion", fecha},
             tarea2{"titulo", "descripcion", fecha},
             tarea3{"titulo", "descripcion", fecha}
         ]

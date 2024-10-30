@@ -1,11 +1,15 @@
 import MyNode from "./Node";
 
 export default class Lista<T> {
-    private head: MyNode<T>;
+    public head: MyNode<T>;
     constructor() {
         this.head = undefined as unknown as MyNode<T>;
     }
 
+    public getHead(): MyNode<T> {
+        return this.head;
+    }
+    
     public push(value: T): MyNode<T> {
         const node = new MyNode(value);
         let headAux = this.head;
@@ -135,7 +139,8 @@ export default class Lista<T> {
     }
 
     public imprimirTodo(): void {
-        let actual = this.head;
+        let aux = this.head
+        let actual = aux;
     
         while (actual) {
             console.log(actual.value);

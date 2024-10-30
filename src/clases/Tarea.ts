@@ -1,7 +1,8 @@
 export default class Tarea{
-    private titulo:string;
+
+    public titulo:string;
     private descripcion:string;
-    private fechaVec:number;
+    public fechaVec:number;
 
     
     constructor(titulo:string, descripcion:string, fecha:number){
@@ -18,6 +19,9 @@ export default class Tarea{
 
     public getTitulo(): string{
         return this.titulo;
+    }
+    public getFechaVec():number {
+        return this.fechaVec;
     }
     
 }
