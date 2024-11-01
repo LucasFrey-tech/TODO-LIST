@@ -1,34 +1,46 @@
+import { Administrador } from "../auxiliar/administrador";
 import { Busqueda } from "../auxiliar/busqueda";
 import { Ordenamiento } from "../auxiliar/ordenamiento";
 import Lista from "../Listas/Lista";
 import MyNode from "../Listas/Node";
 import Tarea from "./Tarea";
 
-export default class APP implements Busqueda {
-    private lista = new Lista<Tarea>;
-    private listaCompletada: Lista<Tarea> | null = null;
+export default class APP {
 
-    constructor(list: Lista<Tarea>) {
-        this.lista = list;
+    private tarea: Tarea;
+
+    private pendiente = new Lista<Tarea>;
+    private completada = new Lista<Tarea>;
+
+    private buscador: Busqueda = new Busqueda();
+    private ordenador: Ordenamiento = new Ordenamiento();
+
+    private admin: Administrador = new Administrador();
+
+    constructor(){
+        this.tarea = undefined as unknown as Tarea;
     }
 
 
+    public crearDesdeApp(){
+        this.admin.crearTarea(this.tarea);
 
-    public busqueda(parametro: string | number): MyNode<Tarea> | null {
-        let nodoActual = this.lista.getHead();
-
-        while (nodoActual) {
-            const tarea = nodoActual.value;
-
-            if ((typeof parametro === "string" && tarea.getTitulo() === parametro) || (typeof parametro === "number" && tarea.getFechaVec() === parametro)) {
-                return nodoActual;
-            }
-
-            nodoActual = nodoActual.next;
-        }
-        return null;
+        this.pendiente.push(this.tarea);
     }
 
+    public editarDesdeApp(){
+        //const actual = this.buscarTarea();// esta mal ver despues
+        //this.admin.editarTarea(actual);
+    }
+/*
+    public buscarTarea(){
+        this.buscador.buscarPorTitulo("valor");
+    }
+
+    public ordenarTarea(){
+        this.ordenador.ordenarPorTitulo("valor");
+    }
+*/
 }
 
 /*PREGUNTAS
@@ -61,6 +73,28 @@ export default class APP implements Busqueda {
         node.next = headAux;
         return node;
     }
+-------------------------------------------------------------
+    private lista = new Lista<Tarea>;
+    private listaCompletada: Lista<Tarea> | null = null;
 
-    
+    constructor(list: Lista<Tarea>) {
+        this.lista = list;
+    }
+
+
+
+    public busqueda(parametro: string | number): MyNode<Tarea> | null {
+        let nodoActual = this.lista.getHead();
+
+        while (nodoActual) {
+            const tarea = nodoActual.value;
+
+            if ((typeof parametro === "string" && tarea.getTitulo() === parametro) || (typeof parametro === "number" && tarea.getFechaVec() === parametro)) {
+                return nodoActual;
+            }
+
+            nodoActual = nodoActual.next;
+        }
+        return null;
+    }
 */

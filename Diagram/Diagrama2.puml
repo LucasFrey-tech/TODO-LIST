@@ -1,17 +1,25 @@
 @startuml TaskerApp
 
 class APP{
-    - tarea: LISTA <Tarea>
+    - tarea: Tarea
 
     - completada: LISTA <Tarea>
+    - pendiente: Lista <Tarea>
+
     - buscador: Busqueda
 
-    +BuscarTarea()
+    - admin: Administrador
+
+
+    +buscarTarea()
+    +ordenarTarea()
     ---
-    <Opcion 2>
-    + crearTarea()
-    + editarTarea()
-    + eliminarTarea()
+
+    + crearTareaAPP(){
+        this.admin.crearTarea()
+    }// 
+    + editarTareaAPP() //this.admin.xxx
+    + eliminarTareaAPP() //this.admin.xxx
 }
 
 class Tarea{
@@ -28,7 +36,7 @@ class Tarea{
 
 
 class Administrador<opcion 1>{
-    + crearTarea()
+    + crearTarea() // todo el codigo
     + editarTarea()
     + eliminarTarea()
 }
@@ -61,10 +69,43 @@ class MyNode<Tarea>{
 
 APP .u.|> Busqueda
 APP .u.|> Ordenamiento
-APP *-- LISTA
+APP <|-- Tarea
+
+APP .d.|> Administrador
 
 
 LISTA *-- MyNode
 MyNode *-- Tarea
 
+'Tarea <|.. Administrador
+
 @enduml
+
+Creo tarea 1:
+[
+    Lista
+    [
+        tarea1{propiedades}
+    ]
+]
+
+Creo tarea 2:
+[
+    Lista
+    [
+        tarea1{propiedades}
+        tarea2{propiedades}
+    ]
+]
+
+crearTarea() {
+    //codigo para la creacion
+
+    //push tarea
+}
+
+editarTarea() {
+
+}
+
+tarea3{"..","descripcion"...}

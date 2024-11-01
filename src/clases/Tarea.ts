@@ -20,9 +20,17 @@ export default class Tarea{
     public getTitulo(): string{
         return this.titulo;
     }
+
+    public setTitulo(valor:string){
+        this.titulo=valor;
+    }
     
     public getFechaVec():number {
         return this.fechaVec;
+    }
+
+    public setFechaVec(valor: number){
+        this.fechaVec = valor;
     }
     
 }
