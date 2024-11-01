@@ -18,14 +18,17 @@ export default class APP {
     private admin: Administrador = new Administrador();
 
     constructor(){
-        this.tarea = undefined as unknown as Tarea;
+        this.tarea = new Tarea("","",0);
     }
 
+    public getTarea():Tarea{
+        return this.tarea;
+    }
 
     public crearDesdeApp(){
         this.admin.crearTarea(this.tarea);
 
-        this.pendiente.push(this.tarea);
+        //this.pendiente.push(this.tarea);
     }
 
     public editarDesdeApp(){

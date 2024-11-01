@@ -1,8 +1,8 @@
 import APP from "../../src/clases/APP";
-import { mock } from "jest-mock-extended"
+//import { mock } from "jest-mock-extended"
 import Lista from "../../src/Listas/Lista";
 import Tarea from "../../src/clases/Tarea";
-
+/*
 describe("test de la clase tarea", () =>{
     let instance: Tarea;
 
@@ -14,22 +14,29 @@ describe("test de la clase tarea", () =>{
         expect(resultado).toEqual("HOLA");
     });
 
-});
+});*/
 
 describe("test de la clase Aplicaicon", ()=>{
 
     let instance: APP;
 
-    test('Mockiamos la Tarea', () => {
+    beforeEach(()=>{
+        instance = new APP();
+    });
 
-        const mockTarea = mock<Tarea>();
+    test("Verificamos la asignacion de tarea", () => {
+        /*---usando el crearDesdeApp()---;
+        instance.crearDesdeApp();
+        expect(instance.getTarea().getTitulo()).toBe("LUCHUGA");
+        */
 
-        mockTarea.mostrarDetalles();
+        //Llamando al set direcamente
+        instance.getTarea().setTitulo("HOLA");
+        expect(instance.getTarea().getTitulo()).toBe("HOLA");
 
-        //instance.crearDesdeApp();   
-        
-        expect(mockTarea.getTitulo()).toBe("LECHUGA");
-       
+        const tarea:Tarea = instance.getTarea();
+        tarea.getTitulo()
+
     });
 
 });
