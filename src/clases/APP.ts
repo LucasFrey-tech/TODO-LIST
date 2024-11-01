@@ -1,5 +1,5 @@
-import { Busqueda } from "../interfaz/busqueda";
-import { Ordenamiento } from "../interfaz/ordenamiento";
+import { Busqueda } from "../auxiliar/busqueda";
+import { Ordenamiento } from "../auxiliar/ordenamiento";
 import Lista from "../Listas/Lista";
 import MyNode from "../Listas/Node";
 import Tarea from "./Tarea";
@@ -38,6 +38,7 @@ export default class APP implements Busqueda {
     una por fecha
 
     aplicar sobrecarga
+    patron
 */
 
 /*
@@ -60,4 +61,6 @@ export default class APP implements Busqueda {
         node.next = headAux;
         return node;
     }
+
+    
 */

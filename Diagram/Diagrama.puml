@@ -30,15 +30,15 @@ class Tarea{
 
 }
 
-class Crear extends Tarea{
+class Crear extends Solicitud{
     + crearTarea()
 }
 
-class Editar extends Tarea{
+class Editar extends Solicitud{
     + editarTarea()
 }
 
-class Eliminar extends Tarea{
+class Eliminar extends Solicitud{
     + eliminarTarea()
 }
 
@@ -91,4 +91,9 @@ Los usuarios deben poder editar las tareas existentes para modificar sus detalle
 cargar el porcentaje de avance(0, 25, 50, 75 o 100) o marcarlas como completadas.
 
 La aplicación debe permitir a los usuarios eliminar las tareas que ya no sean relevantes.
+
+
+
+Las tareas CREAR - EDITAR - ELIMINAR pasan por solicitud para usarse en Tarea
+
 */
