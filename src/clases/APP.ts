@@ -17,8 +17,8 @@ export default class APP {
 
     private gestor: Gestor = new Gestor();
 
-    constructor(){
-        this.tarea = new Tarea("","",0);
+    constructor(t:Tarea){
+        this.tarea = t;
     }
 
     public getTarea():Tarea{
