@@ -1,6 +1,6 @@
 import Tarea from "../clases/Tarea";
 
-export class Administrador{
+export class Gestor{
 
     public crearTarea(tarea: Tarea): void{
         
