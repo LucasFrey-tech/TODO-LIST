@@ -1,24 +1,31 @@
 @startuml TaskerApp
 
 class APP{
-    - tarea: LISTA <Tarea>
+    - tarea: Tarea
 
     - completada: LISTA <Tarea>
+    - pendiente: Lista <Tarea>
+
     - buscador: Busqueda
 
-    +BuscarTarea()
-    ---
-    <Opcion 2>
-    + crearTarea()
-    + editarTarea()
-    + eliminarTarea()
+    - admin: Gestor
+
+
+    +buscarTarea()
+
+    +ordenarTarea()
+    
+    +crearTarea()
+    +editarTarea()
+    +eliminarTarea()
+    
 }
 
 class Tarea{
     - titulo: string
     - descripción: string
     - fechaDeVencimiento: number
-    - prioridad: number
+    - prioridad: Prioridad
     - categoria:string
     - etiqueta:string
     - porcentajeDeAvance: number
@@ -27,7 +34,7 @@ class Tarea{
 }
 
 
-class Administrador<opcion 1>{
+interface Gestor{
     + crearTarea()
     + editarTarea()
     + eliminarTarea()
@@ -58,13 +65,48 @@ class MyNode<Tarea>{
 
 }
 
+enum Prioridad{
+    ALTA,
+    MEDIA,
+    BAJA;
+}
 
-APP .u.|> Busqueda
-APP .u.|> Ordenamiento
-APP *-- LISTA
+APP -u-> Busqueda
+APP -u-> Ordenamiento
+APP .l.|> Gestor
+APP *-r- LISTA: Composición (APP contiene listas de tareas).
+APP ..> Tarea: Dependencia (APP interactúa con tareas).
 
-
-LISTA *-- MyNode
-MyNode *-- Tarea
+LISTA *-- MyNode: Composición
+MyNode ..> Tarea: Dependencia (MyNode almacena una tarea).
 
 @enduml
+
+Creo tarea 1:
+[
+    Lista
+    [
+        tarea1{propiedades}
+    ]
+]
+
+Creo tarea 2:
+[
+    Lista
+    [
+        tarea1{propiedades}
+        tarea2{propiedades}
+    ]
+]
+
+crearTarea() {
+    //codigo para la creacion
+
+    //push tarea
+}
+
+editarTarea() {
+
+}
+
+tarea3{"..","descripcion"...}

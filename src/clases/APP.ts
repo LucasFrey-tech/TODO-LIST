@@ -1,4 +1,4 @@
-import { Administrador } from "../auxiliar/administrador";
+import { Gestor } from "../auxiliar/Gestor";
 import { Busqueda } from "../auxiliar/busqueda";
 import { Ordenamiento } from "../auxiliar/ordenamiento";
 import Lista from "../Listas/Lista";
@@ -15,7 +15,7 @@ export default class APP {
     private buscador: Busqueda = new Busqueda();
     private ordenador: Ordenamiento = new Ordenamiento();
 
-    private admin: Administrador = new Administrador();
+    private gestor: Gestor = new Gestor();
 
     constructor(){
         this.tarea = new Tarea("","",0);
@@ -26,14 +26,14 @@ export default class APP {
     }
 
     public crearDesdeApp(){
-        this.admin.crearTarea(this.tarea);
+        this.gestor.crearTarea(this.tarea);
 
         //this.pendiente.push(this.tarea);
     }
 
     public editarDesdeApp(){
         //const actual = this.buscarTarea();// esta mal ver despues
-        //this.admin.editarTarea(actual);
+        //this.gestor.editarTarea(actual);
     }
 /*
     public buscarTarea(){
