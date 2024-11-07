@@ -3,3 +3,6 @@ class ValorNoEncontrado extends Error {
       super(message);
     }
 }
+/*
+nombre generico preguntar si hay que incluir mas
+*/

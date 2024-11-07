@@ -10,10 +10,9 @@ export default class BuscadorTareaFacade{
 
         while(aux.value.getTitulo() != titulo){
             aux = aux.next;
-            
         }
         //1°
-        return aux.value;
+        return aux.value; //valor exacto de la tarea con el titulo PEPE
     }
 
     public static buscarPorFecha(lista: ListaTarea, fecha: number):Tarea {
@@ -28,5 +27,7 @@ export default class BuscadorTareaFacade{
 }
 
 /*
-    1°en caso de no encontrar tirar excepcion
+    1°en caso de no encontrar tirar excepcion:
+
+    throw new ValorNoEncontrado("valor no encontrado");
 */

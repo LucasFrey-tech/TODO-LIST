@@ -87,4 +87,7 @@ Aplicacion *-- ListaTarea
 ListaTarea *-- NodoTarea
 NodoTarea *-- Tarea
 
+BuscadorTareaFacade--OrdenamientoTarea
+OrdenamientoTarea--CrearTarea
+CrearTarea--EditarTarea
 @enduml

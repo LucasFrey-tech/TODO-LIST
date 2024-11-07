@@ -48,7 +48,7 @@ export default class ListaTarea {
         }
         value = headAux.value;
         return value;
-    }
+    }//pop borra el ultimo nodo
 
     public insertFirst(value: Tarea): NodoTarea {
         const node = new NodoTarea(value);
@@ -111,7 +111,7 @@ export default class ListaTarea {
             previous.next = headAux.next;
         }
         return headAux.value;
-    }
+    }//delete borra un nodo particular
    
     public search(value: Tarea): NodoTarea {
         let headAux = this.head;

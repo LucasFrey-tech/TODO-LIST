@@ -8,8 +8,9 @@ describe("test de la clase APP", () => {
 
     let aplicacion: Aplicacion;
     let fechaTst: number;
-    let tarea:Tarea;
 
+
+    //mock tarea
     beforeEach(() => {
         aplicacion = new Aplicacion();
         fechaTst = 20241107;
@@ -26,9 +27,19 @@ describe("test de la clase APP", () => {
         const lista = aplicacion.getListaDeTareas();
         lista.imprimirTodo();
     });
+
+    test("edito una tarea de la lista", ()=>{
+        aplicacion.agregarNuevaTarea("titulo2", "descripcion2", fechaTst, Prioridad.BAJA, "TRABAJO2", "etiqueta2");
+        const lista = aplicacion.getListaDeTareas();
+        lista.imprimirTodo();
+    });
 /*
     test("pasar de una lista a otra", ()=>{
         aplicacion.cargarTareasCompletas();
     });
 */
 });
+
+/**
+ * preguntar si hay que usar mock si tiene un objeto dentro la calse
+ */
