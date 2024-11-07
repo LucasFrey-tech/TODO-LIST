@@ -61,6 +61,7 @@ class EditarTarea{
     + editarCategoria(lista: ListaTarea, tarea: Tarea, nuevaCategoria: string):void
     + editarEtiqueta(lista: ListaTarea, tarea: Tarea, nuevaEtiqueta:string):void
     + editarAvance(lista: ListaTarea, tarea: Tarea, nuevoAvance: number):void
+}
 
 class BuscadorTareaFacade{
     + buscarPorTitulo(lista: ListaTarea, titulo: string):Tarea
