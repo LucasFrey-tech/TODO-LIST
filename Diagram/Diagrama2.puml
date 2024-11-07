@@ -1,0 +1,75 @@
+@startuml DiagramaClases
+
+title TODO-LIST
+
+class Aplicacion{
+    private listaDeTareas: ListaTarea;
+    private listaDeTareasCompletadas: ListaTarea;
+    
+    public agregarNuevaTarea()
+    public editarUnaTarea()
+    public eliminarUnaTarea(tarea: Tarea):Tarea
+    public getListasDeTareas():ListaDeTarea
+    public cargarTareasCompletas():void
+}
+
+class Tarea{
+    private titulo:string;
+    private descripcion:string;
+    private fechaVec:number;
+    private prioridad:Prioridad;
+    private categoria:string;
+    private etiqueta:string;
+    private avance:number;
+
+    public getTitulo(): string
+    public setTitulo(valor:string)
+    public getDescripcion():string
+    public setDescripcion(valor: string)
+    public getFechaVec():number
+    public setFechaVec(valor: number)
+    public getPrioridad():Prioridad
+    public setPrioridad(valor: Prioridad)
+    public getCategoria():string
+    public setCategoria(valor: string)
+    public getEtiqueta():string
+    public setEtiqueta(valor: string)
+    public getAvance():number
+    public setAvance(valor: number)
+}
+
+class NodoTarea{
+    private _value: Tarea;
+    private _next: NodoTarea;
+
+    + gets&sets()
+}
+
+class ListaTarea{
+    private head: NodoTarea;
+}
+
+class BuscadorTareaFacade{
+    public buscarPorTitulo(lista: ListaTarea, titulo: string):Tarea
+    buscarPorFecha(lista: ListaTarea, fecha: number):Tarea
+}
+
+class OrdenamientoTarea{
+
+}
+
+
+
+enum Prioridad{
+    ALTA,
+    MEDIA,
+    BAJA
+}
+
+'relaciones
+Aplicacion *-- ListaTarea
+
+ListaTarea *-- NodoTarea
+NodoTarea *-- Tarea
+
+@enduml
