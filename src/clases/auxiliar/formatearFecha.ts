@@ -17,4 +17,7 @@ necesito que imprima la fecha de las tareas con ese formato
 convertirFecha cuando sea llamada obtiene el valor de tara.FechaVec
 
 convertirFecha(tarea.getFechaVec());
+
+fecha = 20240204
+
 */

@@ -1,8 +1,8 @@
 import ListaTarea from "../../Listas/ListaTarea";
 import Tarea from "../Tarea";
 
-//FACADE
-export default class BuscadorTareaFacade{
+
+export default class BuscadorTarea{
 
     public static buscarPorTitulo(lista: ListaTarea, titulo: string):Tarea {
         

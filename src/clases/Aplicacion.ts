@@ -1,8 +1,9 @@
 import { Prioridad } from "../Enum/Prioridad";
 import ListaTarea from "../Listas/ListaTarea";
-import BuscadorTarea from "./auxiliar/busqueda";
+import BusquedaPorTitulo from "./auxiliar/[NEW]busquedaTit";
 import CrearTarea from "./auxiliar/crearTarea";
 import EditarTarea from "./auxiliar/editarTarea";
+import { BusquedaEstrategia } from "./interfaces/[NEW]BusquedaEstrategia";
 import Tarea from "./Tarea";
 
 /**
@@ -13,6 +14,7 @@ export default class Aplicacion{
     private listaDeTareas: ListaTarea;
     private listaDeTareasCompletadas: ListaTarea;
     private editar: EditarTarea;
+    private buscador: BusquedaEstrategia;
 
 /**
  * @param constructor.
@@ -22,6 +24,7 @@ export default class Aplicacion{
         this.listaDeTareasCompletadas = new ListaTarea();
         
         this.editar = new EditarTarea(); // por ver bien
+        this.buscador = new BusquedaPorTitulo;
     }
     
     public creardorT(titulo:string, descripcion:string, fecha:number, prioridad:Prioridad, categoria:string, etiqueta:string):Tarea{
@@ -87,7 +90,15 @@ export default class Aplicacion{
         }
         this.listaDeTareas = listaAux2;
     }
+
+    public buscadorFunc(lista: ListaTarea, valor: any):void{
+        const tarea = this.buscador.buscar(lista, 1234);
+    }
+
+
 }
+
+
 /**
  * recorro nodo x nodo comparando con avance 100
  * si el avance es 100 madno ese nodo a listaCompleta
