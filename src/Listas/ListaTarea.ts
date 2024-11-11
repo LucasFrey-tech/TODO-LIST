@@ -50,6 +50,7 @@ export default class ListaTarea {
         return value;
     }//pop borra el ultimo nodo
 
+ 
     public insertFirst(value: Tarea): NodoTarea {
         const node = new NodoTarea(value);
         node.next = this.head;

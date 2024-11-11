@@ -1,6 +1,6 @@
 import { Prioridad } from "../Enum/Prioridad";
 import ListaTarea from "../Listas/ListaTarea";
-import BusquedaPorTitulo from "./auxiliar/[NEW]busquedaTit";
+import BusquedaPorTitulo from "./auxiliar/busqueda/[NEW]busquedaTit";
 import CrearTarea from "./auxiliar/crearTarea";
 import EditarTarea from "./auxiliar/editarTarea";
 import { BusquedaEstrategia } from "./interfaces/[NEW]BusquedaEstrategia";
@@ -13,68 +13,50 @@ export default class Aplicacion{
 
     private listaDeTareas: ListaTarea;
     private listaDeTareasCompletadas: ListaTarea;
+
     private editar: EditarTarea;
     private buscador: BusquedaEstrategia;
+    private creador: CrearTarea;
+//-----------------------------------------------------------------------------------------
 
-/**
- * @param constructor.
- */
     constructor(){
         this.listaDeTareas = new ListaTarea();
         this.listaDeTareasCompletadas = new ListaTarea();
-        
+
+        this.creador = new CrearTarea();
         this.editar = new EditarTarea(); // por ver bien
         this.buscador = new BusquedaPorTitulo;
     }
     
     public creardorT(titulo:string, descripcion:string, fecha:number, prioridad:Prioridad, categoria:string, etiqueta:string):Tarea{
-        const nuevaTarea = CrearTarea.crearNuevaTarea(titulo, descripcion, fecha, prioridad, categoria, etiqueta);
+        const nuevaTarea = this.creador.crearNuevaTarea(titulo, descripcion, fecha, prioridad, categoria, etiqueta)
         return nuevaTarea;
     }
 
-    //por ahora opcion para crear tareas, reveer con Ale  opcion 1
     public agregarNuevaTarea(nuevaTarea:Tarea) {
-        nuevaTarea = this.creardorT("titulo", "descripcion", 2024, Prioridad.ALTA, "categoria", "etiqueta")
-        this.listaDeTareas.push(nuevaTarea);
+        this.listaDeTareas.push(nuevaTarea); // principal de la funcion
     }
-
-    /*opcion2
-    public agregarNuevaTarea(titulo:string, descripcion:string, fecha:number, prioridad:Prioridad, categoria:string, etiqueta:string) {
-        const nuevaTarea = CrearTarea.crearNuevaTarea(titulo, descripcion, fecha, prioridad, categoria, etiqueta);
-        this.listaDeTareas.push(nuevaTarea);
-    }
-    */
+//-----------------------------------------------------------------------------------------
     
     public editarUnaTarea(){
         //editar tarea especifica aplicando strategia
-        
+        //this.listaDeTareas.imprimirTodo();
     }
 
     public eliminarUnaTarea(tarea: Tarea): Tarea{
         return this.listaDeTareas.delete(tarea);
     }
 
-    public getListaDeTareas(): ListaTarea {
+    public getListaDeTareasIncompletas(): ListaTarea {
         return this.listaDeTareas;
     }
+    
+    public getListaDeTareasCompletas(): ListaTarea {
+        return this.listaDeTareasCompletadas;
+    }
+    
 
     public cargarTareasCompletas():void{
-        let tarea:Tarea;
-        let listaAux = new ListaTarea;
-        //let listaAux2
-
-        while(this.listaDeTareas){
-            tarea = this.listaDeTareas.pop();
-            if(tarea.getAvance() === 100){
-                this.listaDeTareasCompletadas.push(tarea);
-            } else {
-                listaAux.push(tarea);
-            }
-        }
-        this.listaDeTareas = listaAux;
-    }
-
-    public cargarTareasCompletas2():void{
         let tarea:Tarea;
         let listaAux = this.listaDeTareas;
         let listaAux2 = new ListaTarea;

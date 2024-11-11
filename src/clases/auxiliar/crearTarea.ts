@@ -2,12 +2,12 @@ import { Prioridad } from "../../Enum/Prioridad";
 import Tarea from "../Tarea";
 
 export default class CrearTarea{
-    public static crearNuevaTarea(titulo:string, descripcion:string, fecha:number, prioridad:Prioridad, categoria:string, etiqueta:string):Tarea {
+    public crearNuevaTarea(titulo:string, descripcion:string, fecha:number, prioridad:Prioridad, categoria:string, etiqueta:string):Tarea {
         let avance = 0;
         if(!titulo){
             throw new ValorNoEncontrado("El titulo es obligatorio");
         }
-        const nuevaTarea = new Tarea(titulo, descripcion, fecha, prioridad, categoria, etiqueta, avance);
+        const nuevaTarea = new Tarea(titulo, descripcion, fecha, prioridad, categoria, etiqueta);
         return nuevaTarea;
     }
 }

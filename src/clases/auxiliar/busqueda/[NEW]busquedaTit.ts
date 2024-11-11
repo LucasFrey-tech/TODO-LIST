@@ -1,6 +1,6 @@
-import {BusquedaEstrategia} from "../interfaces/[NEW]BusquedaEstrategia"
-import ListaTarea from "../../Listas/ListaTarea";
-import Tarea from "../Tarea";
+import {BusquedaEstrategia} from "../../interfaces/[NEW]BusquedaEstrategia"
+import ListaTarea from "../../../Listas/ListaTarea";
+import Tarea from "../../Tarea";
 
 export default class BusquedaPorTitulo implements BusquedaEstrategia {
 
