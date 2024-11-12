@@ -12,6 +12,10 @@ export default class ListaTarea {
         return this.head;
     }
     
+    public setHead(value: NodoTarea){
+        this.head = value
+    }
+    
     public push(value: Tarea): NodoTarea {
         const node = new NodoTarea(value);
         let headAux = this.head;
