@@ -62,7 +62,7 @@ export default class Aplicacion{
         let listaAux2 = new ListaTarea;
 
 
-        while(listaAux){
+        while(listaAux.getHead()){
             tarea = listaAux.pop();
             if(tarea.getAvance() === 100){
                 this.listaDeTareasCompletadas.push(tarea);
