@@ -44,17 +44,20 @@ describe("test de la clase APP", () => {
         aplicacion.agregarNuevaTarea(tarea4);
         aplicacion.agregarNuevaTarea(tarea5);
         
-        //aplicacion.getListaDeTareasIncompletas().imprimirTodo();
+        aplicacion.getListaDeTareasIncompletas().imprimirTodo();
     });
 
     
     test("pasar de una lista a otra", ()=>{
-        tarea4.setAvance(100);
-        tarea3.setAvance(100);
-
+        //mocks
         aplicacion.cargarTareasCompletas();
-        console.log("=====================================================================================")
         aplicacion.getListaDeTareasCompletas().imprimirTodo();
+    });
+
+    test("Eliminar", ()=>{
+        //mocks
+        console.log(aplicacion.getListaDeTareasIncompletas().imprimirTodo());
+        let tareaEliminada = aplicacion.eliminarUnaTarea(tarea);
     });
 
 });
