@@ -1,4 +1,4 @@
-// Importa las clases y dependencias necesarias
+import { mock } from 'jest-mock-extended'
 import BuscadorDeTarea from '../src/clases/auxiliar/busqueda/buscadarDeTarea';
 import BusquedaPorTitulo from '../src/clases/auxiliar/busqueda/BusquedaPorTitulo';
 import BusquedaPorFecha from '../src/clases/auxiliar/busqueda/busquedaPorFec';
@@ -9,16 +9,15 @@ import ListaTarea from '../src/Listas/ListaTarea';
 describe('BuscadorDeTarea Strategy Pattern', () => {
     let buscador: BuscadorDeTarea;
     
-    let mockLista: jest.Mocked<ListaTarea>;
-    let mockTarea: jest.Mocked<Tarea>;
+    let mockLista = mock<ListaTarea>();
+    let mockTarea = mock<Tarea>();
 
     /*
         mock tareas, no usar let tarea
     */
 
     beforeEach(() => {
-
-        mockLista = new ListaTarea();
+        mockTarea.
     });
 
     test('Debe buscar por título correctamente', () => {
