@@ -1,6 +1,7 @@
 import {BusquedaEstrategia} from "../../interfaces/busquedaEstrategia"
 import ListaTarea from "../../../Listas/ListaTarea";
 import Tarea from "../../Tarea";
+import ValorNoEncontrado from "../../../excepciones/error";
 /**
  * @class BusquedaPorTitulo
  * @implements BusquedaEstrategia
@@ -19,7 +20,17 @@ export default class BusquedaPorTitulo implements BusquedaEstrategia {
         while(aux.value.getTitulo() != titulo){
             aux = aux.next;
         }
-        //1°
+
+        if (aux === undefined) {
+            throw new ValorNoEncontrado("No se encontró una tarea con el título buscado");
+        }
+
         return aux.value; //valor exacto de la tarea con el titulo PEPE
     }
 }
+
+/*
+        while(aux !== undefined && aux.value.getTitulo() != titulo){
+            aux = aux.next;
+        }
+*/

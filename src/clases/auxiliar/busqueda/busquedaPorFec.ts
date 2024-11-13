@@ -1,6 +1,7 @@
 import {BusquedaEstrategia} from "../../interfaces/busquedaEstrategia"
 import ListaTarea from "../../../Listas/ListaTarea";
 import Tarea from "../../Tarea";
+import ValorNoEncontrado from "../../../excepciones/error";
 
 export default class BusquedaPorFecha implements BusquedaEstrategia {
 
@@ -11,7 +12,10 @@ export default class BusquedaPorFecha implements BusquedaEstrategia {
         while(aux.value.getFechaVec() != fecha){
             aux = aux.next;
         }
-        //1°
+        
+        if (aux === undefined) {
+            throw new ValorNoEncontrado("No se encontró una tarea con el título");
+        }
         return aux.value;
     }
 }
