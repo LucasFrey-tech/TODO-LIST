@@ -1,4 +1,5 @@
 import {BusquedaEstrategia} from "../../interfaces/busquedaEstrategia"
+import { objetoBusqueda } from "../../interfaces/objetoBusqueda";
 import ListaTarea from "../../../Listas/ListaTarea";
 import Tarea from "../../Tarea";
 import ValorNoEncontrado from "../../../excepciones/error";
@@ -13,11 +14,11 @@ export default class BusquedaPorTitulo implements BusquedaEstrategia {
     * @description esta funcion al recibir una lista y un valor de tipo String,
     * buscara el nodo Tarea correspondiente dentro de la lista
     */
-    public buscar(lista: ListaTarea, titulo: string):Tarea {
+    public buscar(lista: ListaTarea, valor: objetoBusqueda):Tarea {
         
         let aux = lista.getHead();
         
-        while(aux.value.getTitulo() != titulo){
+        while(aux.value.getTitulo() != valor.titulo){
             aux = aux.next;
         }
 

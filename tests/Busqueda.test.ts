@@ -18,8 +18,6 @@ describe('BuscadorDeTarea Strategy Pattern', () => {
     let mockTarea2 = mock<Tarea>();
     let mockTarea3 = mock<Tarea>();
 
-    let tarea = new Tarea("Titulo1","Descripcion Prueba",20241015,Prioridad.BAJA,"Categoria Prueba","Etiqueta Prueba");
-    let lista = new ListaTarea();
 
     
     function cargarTareas(): void {
@@ -116,4 +114,14 @@ describe('BuscadorDeTarea Strategy Pattern', () => {
     }
     
     const result = this.contextBusq.buscar(lista, "Titulo1");
-*/
+
+    mock problemas
+
+    usar mockTarea no carga valor.
+
+    let tarea = new Tarea("Titulo1","Descripcion Prueba",20241015,Prioridad.BAJA,"Categoria Prueba","Etiqueta Prueba");
+    let lista = new ListaTarea();
+    lista.push(tarea);
+
+
+    */
