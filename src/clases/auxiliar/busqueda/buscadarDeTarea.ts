@@ -1,5 +1,6 @@
 import ListaTarea from "../../../Listas/ListaTarea";
 import { BusquedaEstrategia } from "../../interfaces/busquedaEstrategia";
+import { objetoBusqueda } from "../../interfaces/objetoBusqueda";
 import Tarea from "../../Tarea";
 
 export default class BuscadorDeTarea {
@@ -13,7 +14,7 @@ export default class BuscadorDeTarea {
         this.estrategia = estrategia;
     }
 
-    public buscar(lista:ListaTarea, valor:any): Tarea{
+    public buscar(lista:ListaTarea, valor:objetoBusqueda): Tarea{
         return this.estrategia.buscar(lista, valor);
     }
 }

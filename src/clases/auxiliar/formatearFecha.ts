@@ -1,4 +1,5 @@
 import moment from "moment";
+import ValorNoEncontrado from "../../excepciones/error";
 
 export default class ConvertirFecha{
     public convertirFecha(fechaNumerica: number){

@@ -1,5 +1,6 @@
 import Tarea from "../clases/Tarea";
 import NodoTarea from "./NodoTarea";
+import ConvertirFecha from "../clases/auxiliar/formatearFecha";
 
 export default class ListaTarea {
     private head: NodoTarea;
@@ -144,7 +145,7 @@ export default class ListaTarea {
             this.removeFirst();
         }
     }
-
+/*
     public imprimirTodo(): void {
         let aux = this.head
         let actual = aux;
@@ -154,5 +155,24 @@ export default class ListaTarea {
             actual = actual.next;
         }
     }  
+  */
+    public imprimirTodo(): void {
+        let aux = this.head;
+        let actual = aux;
     
+        while (actual) {
+            const tarea = actual.value;
+            const fechaM: ConvertirFecha = new ConvertirFecha();
+            console.log({
+                titulo: tarea.getTitulo(),
+                descripcion: tarea.getDescripcion(),
+                fecha: (fechaM.convertirFecha(tarea.getFechaVec()).format('DD/MM/YYYY')),
+                categoria: tarea.getCategoria(),
+                etiqueta: tarea.getEtiqueta(),
+                prioridad: tarea.getPrioridad(),
+                avance: tarea.getAvance()
+            });
+            actual = actual.next;
+        }
+    }
 }
