@@ -54,13 +54,14 @@ export default class ListaTarea {
         return value;
     }//pop borra el ultimo nodo
 
- 
+    /*Por ahora no lo utlizamos
     public insertFirst(value: Tarea): NodoTarea {
         const node = new NodoTarea(value);
         node.next = this.head;
         this.head = node;
         return node;
     }
+    */
 
     public removeFirst(): Tarea {
         let value = undefined as unknown as Tarea;
@@ -92,6 +93,7 @@ export default class ListaTarea {
         return node;
     }
 
+    /*Por ahora no lo utilizamos
     insertUnique(value: Tarea): NodoTarea {
         const node = this.search(value);
         
@@ -100,6 +102,7 @@ export default class ListaTarea {
         }
         return node;
     }
+    */
     
     public delete(value: Tarea): Tarea {
         let headAux = this.head;
@@ -150,7 +153,17 @@ export default class ListaTarea {
         let actual = aux;
     
         while (actual) {
-            console.log(actual.value);
+            //console.log(actual.value);
+            const tarea = actual.value;
+            console.log({
+                titulo: tarea.getTitulo(),
+                descripcion: tarea.getDescripcion(),
+                fecha: tarea.getFechaVec(),
+                categoria: tarea.getCategoria(),
+                etiqueta: tarea.getEtiqueta(),
+                prioridad: tarea.getPrioridad(),
+                avance: tarea.getAvance()
+            });
             actual = actual.next;
         }
     }  
