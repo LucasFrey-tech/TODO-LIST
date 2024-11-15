@@ -20,14 +20,22 @@ describe("Test de la clase Tarea.ts", ()=>{
     });
 
     test('Pruebo las funciones de Set', () => {
-       /* expect(tarea.setTitulo("Mecanico")).toHaveBeenCalled("Mecanico");
-        expect(tarea.setDescripcion("Arreglar el auto")).toBe("Arreglar el auto");
-        expect(tarea.setFechaVec(20201115)).toBe(20241115);
-        expect(tarea.setPrioridad(0)).toBe(Prioridad.ALTA);
-        expect(tarea.setCategoria("Vehiculo")).toBe("Vehiculo");
-        expect(tarea.setEtiqueta("Automovil")).toBe("Automovil");
-        expect(tarea.setAvance(25)).toBe(25);
-    */
+
+        tarea.setTitulo("Mecanico");
+        tarea.setDescripcion("Arreglar el auto");
+        tarea.setFechaVec(20201115);
+        tarea.setPrioridad(0);
+        tarea.setCategoria("Vehiculo");
+        tarea.setEtiqueta("Automovil");
+        tarea.setAvance(25);
+
+        expect(tarea.getTitulo()).toBe("Mecanico");
+        expect(tarea.getDescripcion()).toBe("Arreglar el auto");
+        expect(tarea.getFechaVec()).toBe(20201115);
+        expect(tarea.getPrioridad()).toBe(Prioridad.ALTA);
+        expect(tarea.getCategoria()).toBe("Vehiculo");
+        expect(tarea.getEtiqueta()).toBe("Automovil");
+        expect(tarea.getAvance()).toBe(25);
     });
 
 });
