@@ -1,4 +1,5 @@
 import { Prioridad } from "../../Enum/Prioridad";
+import ValorNoEncontrado from "../../excepciones/error";
 import Tarea from "../Tarea";
 
 export default class CrearTarea{

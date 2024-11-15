@@ -1,4 +1,4 @@
-class ValorNoEncontrado extends Error {
+export default class ValorNoEncontrado extends Error {
     constructor(message: string) {
       super(message);
     }

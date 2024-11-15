@@ -5,7 +5,7 @@ import OrdenarPorFecha from "./auxiliar/ordenamiento/ordenarPorFecha";
 import OrdenarPorPrioridad from "./auxiliar/ordenamiento/ordenarPorPrioridad";
 import OrdenarPorTitulo from "./auxiliar/ordenamiento/ordenarPorTitulo";
 import OrdenarTareas from "./auxiliar/ordenamiento/ordenarTarea";
-
+/*
 export default class Extra{
 
     private contextBusq = new BuscadorDeTarea();
@@ -48,3 +48,4 @@ export default class Extra{
 
 }
 
+*/

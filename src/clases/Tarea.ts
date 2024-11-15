@@ -1,8 +1,5 @@
 import { Prioridad } from "../Enum/Prioridad";
-    /**
-    * @class Tarea
-    *
-    */ 
+
 export default class Tarea{
 
     private titulo:string;
@@ -22,10 +19,7 @@ export default class Tarea{
         this.etiqueta = etiqueta;
         this.avance = 0;
     }
-    /**
-    * @funcion getters y setters
-    *
-    */ 
+
     public getTitulo(): string{
         return this.titulo;
     }
