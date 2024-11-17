@@ -54,14 +54,6 @@ export default class ListaTarea {
         return value;
     }//pop borra el ultimo nodo
 
-    /*Por ahora no lo utlizamos
-    public insertFirst(value: Tarea): NodoTarea {
-        const node = new NodoTarea(value);
-        node.next = this.head;
-        this.head = node;
-        return node;
-    }
-    */
 
     public removeFirst(): Tarea {
         let value = undefined as unknown as Tarea;
@@ -92,17 +84,6 @@ export default class ListaTarea {
         node.next = headAux;
         return node;
     }
-
-    /*Por ahora no lo utilizamos
-    insertUnique(value: Tarea): NodoTarea {
-        const node = this.search(value);
-        
-        if (!node) {
-            this.insertOrdered(value);
-        }
-        return node;
-    }
-    */
     
     public delete(value: Tarea): Tarea {
         let headAux = this.head;
