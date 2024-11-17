@@ -56,13 +56,6 @@ export default class ListaTarea {
     }//pop borra el ultimo nodo
 
  
-    public insertFirst(value: Tarea): NodoTarea {
-        const node = new NodoTarea(value);
-        node.next = this.head;
-        this.head = node;
-        return node;
-    }
-
     public removeFirst(): Tarea {
         let value = undefined as unknown as Tarea;
 
@@ -93,15 +86,6 @@ export default class ListaTarea {
         return node;
     }
 
-    insertUnique(value: Tarea): NodoTarea {
-        const node = this.search(value);
-        
-        if (!node) {
-            this.insertOrdered(value);
-        }
-        return node;
-    }
-    
     public delete(value: Tarea): Tarea {
         let headAux = this.head;
         let previous: NodoTarea = undefined as unknown as NodoTarea;
@@ -145,17 +129,7 @@ export default class ListaTarea {
             this.removeFirst();
         }
     }
-/*
-    public imprimirTodo(): void {
-        let aux = this.head
-        let actual = aux;
-    
-        while (actual) {
-            console.log(actual.value);
-            actual = actual.next;
-        }
-    }  
-  */
+
     public imprimirTodo(): void {
         let aux = this.head;
         let actual = aux;
