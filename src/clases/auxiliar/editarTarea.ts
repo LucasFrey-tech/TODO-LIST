@@ -68,12 +68,3 @@ export default class EditarTarea {
         }
     }
 }
-
-/*
-un título --
-una descripción --
-una fecha de vencimiento --
-un nivel de prioridad --
-cualquier etiqueta
-o categoría relevante
-*/
