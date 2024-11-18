@@ -26,13 +26,17 @@ describe('EditarTarea - Lista con múltiples tareas', () => {
 
     function cargarNodos() {
         // Configurar los nodos para que apunten a las tareas respectivas
-        Object.defineProperty(mockNodoTarea1, 'value', {
-            get: jest.fn(() => mockTarea1),
-        });
+        mockNodoTarea1 = {
+            get value() {
+                return mockTarea1;
+            },
+        } as unknown as NodoTarea;
 
-        Object.defineProperty(mockNodoTarea2, 'value', {
-            get: jest.fn(() => mockTarea2),
-        });
+        mockNodoTarea2 = {
+            get value() {
+                return mockTarea2;
+            },
+        } as unknown as NodoTarea;
     }
 
     beforeEach(() => {
