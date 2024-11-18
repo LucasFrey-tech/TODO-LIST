@@ -3,17 +3,14 @@ import { objetoBusqueda } from "../../interfaces/objetoBusqueda";
 import ListaTarea from "../../../Listas/ListaTarea";
 import Tarea from "../../Tarea";
 import ValorNoEncontrado from "../../../excepciones/error";
-/**
- * @class BusquedaPorTitulo
- * @implements BusquedaEstrategia
- */
+/** * Clase `BusquedaPorTitulo` que se encarga de 
+ * buscar tareas por titulo. */
 export default class BusquedaPorTitulo implements BusquedaEstrategia {
 
-    /**
-    * @funcion buscar
-    * @description esta funcion al recibir una lista y un valor de tipo String,
-    * buscara el nodo Tarea correspondiente dentro de la lista
-    */
+    /** * Crea una nueva instancia de `BuscadorDeTarea`. * 
+     * @param {ListaTarea} lista - La lista donde vamos a realizar una busqueda 
+     * @param {objetoBusqueda} valor - El valor por el cual se va a hacer la busqueda 
+     * @returns {Tarea} - la tarea encontrada*/
     public buscar(lista: ListaTarea, valor: objetoBusqueda):Tarea {
         
         let aux = lista.getHead();
