@@ -5,6 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "build": "tsc",
+    "build-docs": "typedoc --plugin typedoc-plugin-rename-defaults --entryPointStrategy expand src/",
     "build:dev": "tsc",
     "clean": "npm run clean:build && npm run clean:temp",
     "clean:build": "npx rimraf ./dist",
@@ -27,6 +28,7 @@
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "typedoc": "^0.26.11",
+    "typedoc-plugin-rename-defaults": "^0.7.1",
     "typescript": "^4.9"
   },
   "license": "ISC",

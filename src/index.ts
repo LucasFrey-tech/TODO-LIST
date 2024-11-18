@@ -1,13 +1,8 @@
 import Aplicacion from "./clases/Aplicacion";
 import { CriterioBusqueda } from "./clases/auxiliar/busqueda/criterioBusqueda";
 import Tarea from "./clases/Tarea";
-import { Prioridad } from "./Enum/Prioridad";
 import ListaTarea from "./Listas/ListaTarea";
 
-
-/**
- * Probando como funciona typedoc
- */
 function main(){
     let aplicacion = new Aplicacion();
     let tarea:Tarea
@@ -26,7 +21,7 @@ function main(){
     aplicacion.agregarNuevaTarea(tarea);
     
     lista = aplicacion.getListaDeTareasIncompletas();
-    
+
     
     aplicacion.setActionBusqueda("titulo");
 

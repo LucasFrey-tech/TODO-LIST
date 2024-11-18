@@ -1,12 +1,13 @@
 import { mock } from 'jest-mock-extended'
 import { Prioridad } from '../src/Enum/Prioridad';
 import BuscadorDeTarea from '../src/clases/auxiliar/busqueda/buscadarDeTarea';
-import BusquedaPorTitulo from '../src/clases/auxiliar/busqueda/BusquedaPorTitulo';
+import BusquedaPorTitulo from '../src/clases/auxiliar/busqueda/busquedaPorTitulo';
 import BusquedaPorFecha from '../src/clases/auxiliar/busqueda/busquedaPorFec';
 import Tarea from '../src/clases/Tarea';
 import ListaTarea from '../src/Listas/ListaTarea';
 import { objetoBusqueda } from '../src/clases/interfaces/objetoBusqueda';
 import ConvertirFecha from '../src/clases/auxiliar/formatearFecha';
+import ValorNoEncontrado from '../src/excepciones/error';
 
 
 
@@ -127,7 +128,6 @@ describe('BuscadorDeTarea Strategy Pattern', () => {
         console.log(toString(result));
     });
 
-/* TEST QUE FALLAN POR OBLIGACION
     test('Buscar por titulo fallida', () => {
 
         lista.push(mockTarea1);
@@ -143,9 +143,7 @@ describe('BuscadorDeTarea Strategy Pattern', () => {
 
         let result = contexto.buscar(lista, valor);
         
-        expect(result).toBe(mockTarea4);
-        
-        console.log(toString(result));
+        expect(result).toThrow(ValorNoEncontrado);
     });
 
 
@@ -164,9 +162,7 @@ describe('BuscadorDeTarea Strategy Pattern', () => {
 
         let result = contexto.buscar(lista, valor);
 
-        expect(result).toBe(mockTarea2);
-        
-        console.log(toString(result));
+        expect(result).toThrow(ValorNoEncontrado);
     });
-*/
+
 });

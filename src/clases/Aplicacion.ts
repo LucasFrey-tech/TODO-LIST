@@ -6,11 +6,11 @@ import EditarTarea from "./auxiliar/editarTarea";
 import Tarea from "./Tarea";
 import BuscadorDeTarea from "./auxiliar/busqueda/buscadarDeTarea";
 import BusquedaPorTitulo from "./auxiliar/busqueda/busquedaPorTitulo";
+import BusquedaPorFecha from "./auxiliar/busqueda/busquedaPorFec";
 import OrdenarPorPrioridad from "./auxiliar/ordenamiento/ordenarPorPrioridad";
 import OrdenarPorFecha from "./auxiliar/ordenamiento/ordenarPorFecha";
 import OrdenarPorTitulo from "./auxiliar/ordenamiento/ordenarPorTitulo";
 import OrdenarTareas from "./auxiliar/ordenamiento/ordenarTarea";
-import BusquedaPorFecha from "./auxiliar/busqueda/busquedaPorFec";
 import ValorNoEncontrado from "../excepciones/error";
 
 /**
@@ -30,8 +30,6 @@ export default class Aplicacion{
     protected contextoBusqueda: BuscadorDeTarea;
     protected actionBusqueda: string;
     protected contextoOrdenamiento: OrdenarTareas;
-    
-    //private valor: objetoBusqueda;
 
     constructor(){
         this.listaDeTareas = new ListaTarea();
