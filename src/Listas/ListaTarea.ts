@@ -12,11 +12,15 @@ export default class ListaTarea {
     public getHead(): NodoTarea {
         return this.head;
     }
-
-    public setHead(value: NodoTarea){
-        this.head = value
-    }
     
+    /**
+     * Establece el nodo cabeza de la lista.
+     * @param {NodoTarea} value - El nuevo nodo cabeza de la lista.
+     */
+    public setHead(value: NodoTarea) {
+        this.head = value;
+    }
+
     public push(value: Tarea): NodoTarea {
         const node = new NodoTarea(value);
         let headAux = this.head;
