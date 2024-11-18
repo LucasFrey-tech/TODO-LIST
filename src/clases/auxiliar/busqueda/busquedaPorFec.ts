@@ -15,7 +15,7 @@ export default class BusquedaPorFecha implements BusquedaEstrategia {
         }
         
         if (aux === undefined) {
-            throw new ValorNoEncontrado("No se encontró una tarea con la fecha buscada");
+            throw new ValorNoEncontrado("No se encontro una tarea con la fecha buscada");
         }
         
         return aux.value;

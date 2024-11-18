@@ -15,7 +15,7 @@ export default class BusquedaPorTitulo implements BusquedaEstrategia {
         }
 
         if (aux === undefined) {
-            throw new ValorNoEncontrado("No se encontró una tarea con el título");
+            throw new ValorNoEncontrado("No se encontro una tarea con el titulo buscado");
         }
 
         return aux.value;

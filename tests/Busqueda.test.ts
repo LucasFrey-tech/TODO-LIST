@@ -69,9 +69,9 @@ describe('BuscadorDeTarea Strategy Pattern', () => {
 
     function decidirTipo(action: string) {
 
-        if (action === "Titulo") {
+        if (action === "Titulo" || action === "titulo") {
            contexto.setEstrategia(new BusquedaPorTitulo());
-        } else if (action === "Fecha") {
+        } else if (action === "Fecha" || action === "fecha") {
             contexto.setEstrategia(new BusquedaPorFecha());
         } else {
             console.log("OPCION NO VALIDA");
@@ -170,16 +170,3 @@ describe('BuscadorDeTarea Strategy Pattern', () => {
     });
 */
 });
-
-
-/*
-    
-    test("Prueba del pop", () => {
-        listaTarea.setHead(head);
-        listaTarea.push(tarea2);
-
-        let tareaPopeada = listaTarea.pop();
-        expect(tareaPopeada).toBeInstanceOf(Object as unknown as NodoTarea);
-
-    });
-*/

@@ -79,11 +79,11 @@ describe('EditarTarea - Lista con múltiples tareas', () => {
 
         // Ejecutar el metodo para editar mockTarea1 y mockTarea2
         editarFunc.editarFechaVec(mockListaTarea, mockTarea1, FechaVecPrueba);
-        editarFunc.editarFechaVec(mockListaTarea, mockTarea2, 20010911);
+        editarFunc.editarFechaVec(mockListaTarea, mockTarea2, 19390901);
 
         // Verificar que se edita la Fecha de vencimiento de la tarea especifica
         expect(mockTarea1.setFechaVec).toHaveBeenCalledWith(FechaVecPrueba);
-        expect(mockTarea2.setFechaVec).toHaveBeenCalledWith(20010911);
+        expect(mockTarea2.setFechaVec).toHaveBeenCalledWith(19390901);
 
     });
     
