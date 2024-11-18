@@ -13,6 +13,6 @@ export default class OrdenarTareas {
     }
 
     public ordenar(lista:ListaTarea): void{
-        return this.estrategia.ordenar(lista);
+        this.estrategia.ordenar(lista);
     }
 }
