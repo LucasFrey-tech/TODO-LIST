@@ -7,7 +7,7 @@ import ValorNoEncontrado from "../../../excepciones/error";
 /** * Clase `BusquedaPorFecha` que se encarga de 
  * buscar tareas dado un fecha pasada por parametro. */
 export default class BusquedaPorFecha implements BusquedaEstrategia {
- /** * Crea una nueva instancia de `BuscadorDeTarea`. * 
+     /** * Crea una nueva instancia de `BuscadorDeTarea`. * 
      * @param {ListaTarea} lista - La lista donde vamos a realizar una busqueda 
      * @param {objetoBusqueda} valor - El valor por el cual se va a hacer la busqueda 
      * @returns {Tarea} - la tarea encontrada*/
@@ -15,13 +15,14 @@ export default class BusquedaPorFecha implements BusquedaEstrategia {
         
         let aux = lista.getHead();
         
-        while(aux.value.getFechaVec() != valor.fecha){
+        while(aux !== undefined && aux.value.getFechaVec() != valor.fecha){
             aux = aux.next;
         }
         
         if (aux === undefined) {
-            throw new ValorNoEncontrado("No se encontró una tarea con el título");
+            throw new ValorNoEncontrado("No se encontro una tarea con la fecha buscada");
         }
+        
         return aux.value;
     }
 }

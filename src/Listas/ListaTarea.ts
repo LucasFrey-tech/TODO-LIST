@@ -1,5 +1,6 @@
 import Tarea from "../clases/Tarea";
 import NodoTarea from "./NodoTarea";
+import ConvertirFecha from "../clases/auxiliar/formatearFecha";
 
 /**
  * Clase `ListaTarea` que representa una lista enlazada de tareas.
@@ -35,6 +36,7 @@ export default class ListaTarea {
      * @param {Tarea} value - La tarea a añadir.
      * @returns {NodoTarea} El nodo añadido.
      */
+
     public push(value: Tarea): NodoTarea {
         const node = new NodoTarea(value);
         let headAux = this.head;
@@ -72,12 +74,14 @@ export default class ListaTarea {
         }
         value = headAux.value;
         return value;
+
     } //pop borra el último nodo
 
     /**
      * Elimina la primera tarea de la lista y la devuelve.
      * @returns {Tarea} La tarea eliminada.
      */
+
     public removeFirst(): Tarea {
         let value = undefined as unknown as Tarea;
 
@@ -117,6 +121,7 @@ export default class ListaTarea {
      * @param {Tarea} value - La tarea a eliminar.
      * @returns {Tarea} La tarea eliminada.
      */
+
     public delete(value: Tarea): Tarea {
         let headAux = this.head;
         let previous: NodoTarea = undefined as unknown as NodoTarea;
@@ -180,10 +185,11 @@ export default class ListaTarea {
 
         while (actual) {
             const tarea = actual.value;
+            const fechaM: ConvertirFecha = new ConvertirFecha();
             console.log({
                 titulo: tarea.getTitulo(),
                 descripcion: tarea.getDescripcion(),
-                fecha: tarea.getFechaVec(),
+                fecha: (fechaM.convertirFecha(tarea.getFechaVec()).format('DD/MM/YYYY')),
                 categoria: tarea.getCategoria(),
                 etiqueta: tarea.getEtiqueta(),
                 prioridad: tarea.getPrioridad(),

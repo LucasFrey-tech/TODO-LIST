@@ -4,7 +4,7 @@ import { OrdenamientoEstrategia } from "../../interfaces/ordenamientoEstrategia"
 
 /** * Clase `OrdenarPorPrioridad` que implementa una estrategia de ordenamiento. */
 export default class OrdenarPorPrioridad implements OrdenamientoEstrategia{
-    /** * Ordena una lista de tareas por prioridad. 
+      /** * Ordena una lista de tareas por prioridad. 
     * @param {ListaTarea} lista - La lista de tareas que se va a ordenar. */
     public ordenar(lista: ListaTarea): void {
         
@@ -33,5 +33,5 @@ export default class OrdenarPorPrioridad implements OrdenamientoEstrategia{
     
         // Establece la lista ordenada como la lista principal.
         lista.setHead(listaAux.getHead());
-    }  
+    }
 }

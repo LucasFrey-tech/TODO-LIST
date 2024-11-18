@@ -4,6 +4,7 @@ import { OrdenamientoEstrategia } from "../../interfaces/ordenamientoEstrategia"
 /** * Clase `OrdenarTareas` que se encarga de ordenar tareas utilizando una estrategia específica. */
 export default class OrdenarTareas {
     private estrategia: OrdenamientoEstrategia;
+    
     /** * Crea una nueva instancia de `OrdenarTareas`. 
     * @param {OrdenamientoEstrategia} estrategia - La estrategia de ordenamiento que se utilizará. */
     constructor(estrategia: OrdenamientoEstrategia) {

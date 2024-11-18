@@ -4,7 +4,7 @@ import Tarea from "../Tarea";
 
 /** * Clase `CrearTarea` que se encarga de crear una nueva tarea. */
 export default class CrearTarea{
-    /** * Crea una nueva tarea. 
+      /** * Crea una nueva tarea. 
     * @param {string} titulo - El título de la tarea. 
     * @param {string} descripcion - La descripción de la tarea. 
     * @param {number} fecha - La fecha de vencimiento de la tarea. 
@@ -21,7 +21,3 @@ export default class CrearTarea{
         return nuevaTarea;
     }
 }
-/*
-clase que crea una nueva tarea, si el titulo no se encuenta tira error
-implementar correctamente el error y la explicacion de la funcion para la documentacion
-*/

@@ -1,8 +1,17 @@
+import { objetoBusqueda } from "./interfaces/objetoBusqueda";
 import { Prioridad } from "../Enum/Prioridad";
 import ListaTarea from "../Listas/ListaTarea";
 import CrearTarea from "./auxiliar/crearTarea";
 import EditarTarea from "./auxiliar/editarTarea";
 import Tarea from "./Tarea";
+import BuscadorDeTarea from "./auxiliar/busqueda/buscadarDeTarea";
+import BusquedaPorTitulo from "./auxiliar/busqueda/busquedaPorTitulo";
+import BusquedaPorFecha from "./auxiliar/busqueda/busquedaPorFec";
+import OrdenarPorPrioridad from "./auxiliar/ordenamiento/ordenarPorPrioridad";
+import OrdenarPorFecha from "./auxiliar/ordenamiento/ordenarPorFecha";
+import OrdenarPorTitulo from "./auxiliar/ordenamiento/ordenarPorTitulo";
+import OrdenarTareas from "./auxiliar/ordenamiento/ordenarTarea";
+import ValorNoEncontrado from "../excepciones/error";
 
 
 /**
@@ -16,6 +25,11 @@ export default class Aplicacion {
     private creador: CrearTarea;
     private editar: EditarTarea;
 
+    protected contextoBusqueda: BuscadorDeTarea;
+    protected actionBusqueda: string;
+    protected contextoOrdenamiento: OrdenarTareas;
+
+
     /**
      * Crea una nueva instancia de `Aplicacion`.
      */
@@ -25,6 +39,11 @@ export default class Aplicacion {
 
         this.creador = new CrearTarea();
         this.editar = new EditarTarea();
+
+        this.contextoBusqueda = new BuscadorDeTarea(new BusquedaPorTitulo());
+        this.actionBusqueda = "";
+        this.contextoOrdenamiento = new OrdenarTareas(new OrdenarPorTitulo());
+
     }
 
     /**
@@ -93,7 +112,7 @@ export default class Aplicacion {
 
         while (listaAux.getHead()) {
             tarea = listaAux.pop();
-            if (tarea.getAvance() === 100) {
+            if(tarea.getAvance() === 100){
                 this.listaDeTareasCompletadas.insertOrdered(tarea);
             } else {
                 listaAux2.insertOrdered(tarea);
@@ -104,15 +123,42 @@ export default class Aplicacion {
         listaAux2.clear();
     }
 
+    private decidirTipoBusqueda(actionBusqueda: string) {
 
-
-    public buscadorFunc(lista: ListaTarea, valor: any):void{
-        
+        if (actionBusqueda === "Titulo" || actionBusqueda === "titulo") {
+            this.contextoBusqueda.setEstrategia(new BusquedaPorTitulo());
+        } else if (actionBusqueda === "Fecha" || actionBusqueda === "fecha") {
+            this.contextoBusqueda.setEstrategia(new BusquedaPorFecha());
+        } else {
+            throw new ValorNoEncontrado("OPCION NO VALIDA");
+        }
     }
 
-    public ordenarFunc(){
-        
+    public setActionBusqueda(valor: string){
+        this.actionBusqueda = valor;
     }
 
+    public buscadorFunc(lista: ListaTarea, valor: objetoBusqueda): Tarea{
+        this.decidirTipoBusqueda(this.actionBusqueda)
+        let result = this.contextoBusqueda.buscar(lista, valor);
+        return result;
+    }
 
+    private decidirTipoOrdenamiento(actionOrdenar: string) {
+
+        if (actionOrdenar === "Titulo" || actionOrdenar === "titulo") {
+           this.contextoOrdenamiento.setEstrategia(new OrdenarPorTitulo());
+        } else if (actionOrdenar === "Fecha" || actionOrdenar === "fecha") {
+            this.contextoOrdenamiento.setEstrategia(new OrdenarPorFecha());
+        } else if (actionOrdenar === "Prioridad" || actionOrdenar === "prioridad") {
+            this.contextoOrdenamiento.setEstrategia(new OrdenarPorPrioridad());
+        } else {
+            throw new ValorNoEncontrado("OPCION NO VALIDA");
+        }
+    }
+    
+    public ordenarFunc(lista: ListaTarea, actionOrdenar: string) {
+        this.decidirTipoOrdenamiento(actionOrdenar);
+        this.contextoOrdenamiento.ordenar(lista);
+    }
 }

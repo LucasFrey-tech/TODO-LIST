@@ -3,6 +3,7 @@ import { objetoBusqueda } from "../../interfaces/objetoBusqueda";
 import ListaTarea from "../../../Listas/ListaTarea";
 import Tarea from "../../Tarea";
 import ValorNoEncontrado from "../../../excepciones/error";
+
 /** * Clase `BusquedaPorTitulo` que se encarga de 
  * buscar tareas por titulo. */
 export default class BusquedaPorTitulo implements BusquedaEstrategia {
@@ -15,20 +16,14 @@ export default class BusquedaPorTitulo implements BusquedaEstrategia {
         
         let aux = lista.getHead();
         
-        while(aux.value.getTitulo() != valor.titulo){
+        while(aux !== undefined && aux.value.getTitulo() != valor.titulo){
             aux = aux.next;
         }
 
         if (aux === undefined) {
-            throw new ValorNoEncontrado("No se encontró una tarea con el título buscado");
+            throw new ValorNoEncontrado("No se encontro una tarea con el titulo buscado");
         }
 
-        return aux.value; //valor exacto de la tarea con el titulo PEPE
+        return aux.value;
     }
 }
-
-/*
-        while(aux !== undefined && aux.value.getTitulo() != titulo){
-            aux = aux.next;
-        }
-*/
