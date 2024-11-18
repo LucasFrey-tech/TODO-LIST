@@ -1,6 +1,6 @@
 @startuml DiagramaClases
 
-title TODO-LIST v.5
+title TODO-LIST v.5 👻
 
 class Aplicacion{
     - listaDeTareas: ListaTarea;

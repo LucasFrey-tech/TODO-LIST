@@ -13,13 +13,11 @@ import OrdenarPorTitulo from "./auxiliar/ordenamiento/ordenarPorTitulo";
 import OrdenarTareas from "./auxiliar/ordenamiento/ordenarTarea";
 import ValorNoEncontrado from "../excepciones/error";
 
+
 /**
- * Clase Aplicacion
- *
- * @class Aplicacion 
- * Esta clase es la principal de aplicacion, se encarga de gestionar las tareas 
+ * Clase `Aplicacion` que maneja la lista de tareas y las operaciones relacionadas con ellas.
  */
-export default class Aplicacion{
+export default class Aplicacion {
 
     private listaDeTareas: ListaTarea;
     private listaDeTareasCompletadas: ListaTarea;
@@ -31,7 +29,11 @@ export default class Aplicacion{
     protected actionBusqueda: string;
     protected contextoOrdenamiento: OrdenarTareas;
 
-    constructor(){
+
+    /**
+     * Crea una nueva instancia de `Aplicacion`.
+     */
+    constructor() {
         this.listaDeTareas = new ListaTarea();
         this.listaDeTareasCompletadas = new ListaTarea();
 
@@ -43,65 +45,72 @@ export default class Aplicacion{
         this.contextoOrdenamiento = new OrdenarTareas(new OrdenarPorTitulo());
 
     }
+
     /**
-     * @function CreadorT se encarga de crear las tareas
-     * esta funcion develve una tarea
-     * 
+     * Crea una nueva tarea.
+     * @param {string} titulo - El título de la tarea.
+     * @param {string} descripcion - La descripción de la tarea.
+     * @param {number} fecha - La fecha de vencimiento de la tarea.
+     * @param {Prioridad} prioridad - La prioridad de la tarea.
+     * @param {string} categoria - La categoría de la tarea.
+     * @param {string} etiqueta - La etiqueta de la tarea.
+     * @returns {Tarea} - La nueva tarea creada.
      */
-    public creardorT(titulo:string, descripcion:string, fecha:number, prioridad:Prioridad, categoria:string, etiqueta:string):Tarea{
-        const nuevaTarea = this.creador.crearNuevaTarea(titulo, descripcion, fecha, prioridad, categoria, etiqueta)
+    public creardorT(titulo: string, descripcion: string, fecha: number, prioridad: Prioridad, categoria: string, etiqueta: string): Tarea {
+        const nuevaTarea = this.creador.crearNuevaTarea(titulo, descripcion, fecha, prioridad, categoria, etiqueta);
         return nuevaTarea;
     }
+
     /**
-     * @function agregarNuevaTarea Se encarga de cargar las tareas a la lista
-     * 
+     * Agrega una nueva tarea a la lista de tareas.
+     * @param {Tarea} nuevaTarea - La nueva tarea a agregar.
      */
-    public agregarNuevaTarea(nuevaTarea:Tarea) {
+    public agregarNuevaTarea(nuevaTarea: Tarea) {
         this.listaDeTareas.push(nuevaTarea);
     }
+
     /**
-     * @function editarUnaTarea Se encarga de la edicion de las tareas.
-     * el usuario llama a las distintas funciones de edicion que necesite para editar la tarea
+     * Edita una tarea en la lista de tareas.
+     * @param {Tarea} tarea - La tarea a editar.
      */
-    
-    public editarUnaTarea(tarea: Tarea){
+    public editarUnaTarea(tarea: Tarea) {
         this.editar.editarAvance(this.listaDeTareas, tarea, 100);
-    } 
-    
+    }
+
     /**
-    * @function eliminarUnaTarea Se encarga de la eliminacion de las tarea.
-    * el usuario llama a la funcion
-    */
-    public eliminarUnaTarea(tarea: Tarea): Tarea{
+     * Elimina una tarea de la lista de tareas.
+     * @param {Tarea} tarea - La tarea a eliminar.
+     * @returns {Tarea} - La tarea eliminada.
+     */
+    public eliminarUnaTarea(tarea: Tarea): Tarea {
         return this.listaDeTareas.delete(tarea);
     }
+
     /**
-    * @function getListaDeTareasIncompletas 
-    * esto devuelve la lista de tareas incompletas
-    */
+     * Obtiene la lista de tareas incompletas.
+     * @returns {ListaTarea} - La lista de tareas incompletas.
+     */
     public getListaDeTareasIncompletas(): ListaTarea {
         return this.listaDeTareas;
     }
+
     /**
-    * @function getListaDeTareasCompletas 
-    * esto devuelve la lista de tareas completas
-    *
-    */
+     * Obtiene la lista de tareas completadas.
+     * @returns {ListaTarea} - La lista de tareas completadas.
+     */
     public getListaDeTareasCompletas(): ListaTarea {
         return this.listaDeTareasCompletadas;
     }
+
     /**
-    * @function cargarTareasCompletas
-    * se encarga de recorer la lista de tareas incompletas y pasar a la lista de tareas completas las tareas que tengan el valor avance 100
-    *
-    */ 
-    public cargarTareasCompletas():void{
-        let tarea:Tarea;
+     * Carga las tareas completadas en la lista de tareas completadas.
+     */
+    public cargarTareasCompletas(): void {
+        let tarea: Tarea;
         let listaAux = this.listaDeTareas;
         let listaAux2 = new ListaTarea;
 
-
-        while(listaAux.getHead()){
+        while (listaAux.getHead()) {
             tarea = listaAux.pop();
             if(tarea.getAvance() === 100){
                 this.listaDeTareasCompletadas.insertOrdered(tarea);

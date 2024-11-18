@@ -4,6 +4,7 @@ import Tarea from "./clases/Tarea";
 import ListaTarea from "./Listas/ListaTarea";
 
 function main(){
+
     let aplicacion = new Aplicacion();
     let tarea:Tarea
     let lista = new ListaTarea();
@@ -29,8 +30,7 @@ function main(){
 
     tarea = aplicacion.buscadorFunc(lista, criterioBusqueda.toObjetoBusqueda());
 
-    aplicacion.ordenarFunc(lista, "titulo");
-
+    aplicacion.ordenarFunc(lista, "titulo"); 
 }
 
 main();
