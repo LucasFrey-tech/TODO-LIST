@@ -2,7 +2,10 @@ import ListaTarea from "../../../Listas/ListaTarea";
 import NodoTarea from "../../../Listas/NodoTarea";
 import { OrdenamientoEstrategia } from "../../interfaces/ordenamientoEstrategia";;
 
+/** * Clase `OrdenarPorFecha` que implementa una estrategia de ordenamiento. */
 export default class OrdenarPorFecha implements OrdenamientoEstrategia{
+    /** * Ordena una lista de tareas por fecha de vencimiento. 
+    * @param {ListaTarea} lista - La lista de tareas que se va a ordenar. */
     public ordenar(lista: ListaTarea): void {
         
         let listaAux = new ListaTarea(); // Lista ordenada temporal.
