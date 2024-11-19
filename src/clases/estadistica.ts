@@ -6,7 +6,7 @@ export default class Estadistica {
     * @param {ListaTarea} listaIncompleta - La lista de tareas incompletas.
     * @param {ListaTarea} listaCompleta - La lista de tareas completadas.
     * @returns {number} - El porcentaje de tareas completadas. */
-    public getPorcentajeCompletada(listaIncompleta: ListaTarea, listaCompleta: ListaTarea): number{
+    public getPorcentajeTareasCompletada(listaIncompleta: ListaTarea, listaCompleta: ListaTarea): number{
         let cantidadIncompletas = 0;
         let cantidadCompletas = 0;
 
@@ -25,8 +25,6 @@ export default class Estadistica {
 
         return (cantidadCompletas / (cantidadIncompletas + cantidadCompletas))*100;
     }
-    
-
 }
 /*
     tareas incompletas: 30
