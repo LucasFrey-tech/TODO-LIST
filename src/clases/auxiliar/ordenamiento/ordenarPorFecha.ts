@@ -34,3 +34,4 @@ export default class OrdenarPorFecha implements OrdenamientoEstrategia{
         // Establece la lista ordenada como la lista principal.
         lista.setHead(listaAux.getHead());
     }
+}
