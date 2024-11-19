@@ -1,0 +1,28 @@
+@startuml Diagrama Secuencia
+
+ Aplicacion -> Creador: creadorT()
+activate Creador
+
+ Creador -> Tarea: crearNuevaTarea()
+activate Tarea
+
+ Creador <-- Tarea: crearNuevaTarea() OK
+deactivate Creador
+
+
+ Aplicacion -> Tarea: agregarNuevaTarea(tarea)
+ Tarea -> Lista: agregarNuevaTarea(tarea)
+ Tarea <-- Lista: agregarNuevaTarea(tarea) OK
+ Aplicacion <-- Tarea: agregarNuevaTarea(tarea) OK
+
+
+
+
+
+
+
+
+
+
+
+@enduml
