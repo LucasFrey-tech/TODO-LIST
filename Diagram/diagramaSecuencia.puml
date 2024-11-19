@@ -3,6 +3,7 @@
  Aplicacion -> Creador: creadorT()
 activate Creador
 
+create Tarea
  Creador -> Tarea: crearNuevaTarea()
 activate Tarea
 
@@ -10,12 +11,17 @@ activate Tarea
 deactivate Creador
 
 
+
  Aplicacion -> Tarea: agregarNuevaTarea(tarea)
  Tarea -> Lista: agregarNuevaTarea(tarea)
 activate Lista
  Tarea <-- Lista: agregarNuevaTarea(tarea) OK
  Aplicacion <-- Tarea: agregarNuevaTarea(tarea) OK
-deactivate Tarea
+
+ Lista -> Tarea: delete(tarea)
+
+
+destroy Tarea
 
 
 
