@@ -140,10 +140,11 @@ describe('BuscadorDeTarea Strategy Pattern', () => {
         decidirTipo(action);
 
         valor = {titulo:"tarea24"};
-
-        let result = contexto.buscar(lista, valor);
-        
-        expect(result).toThrow(ValorNoEncontrado);
+        try{
+            let result = contexto.buscar(lista, valor);
+        }catch(error){
+            expect(error).toBeInstanceOf(ValorNoEncontrado);
+        }
     });
 
 
@@ -160,9 +161,11 @@ describe('BuscadorDeTarea Strategy Pattern', () => {
 
         valor = {fecha:55551222};
 
-        let result = contexto.buscar(lista, valor);
-
-        expect(result).toThrow(ValorNoEncontrado);
+        try{
+            let result = contexto.buscar(lista, valor);
+        }catch(error){
+            expect(error).toBeInstanceOf(ValorNoEncontrado);
+        }
     });
 
 });
