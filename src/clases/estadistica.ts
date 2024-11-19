@@ -1,7 +1,11 @@
 import ListaTarea from "../Listas/ListaTarea";
 
+/** * Clase `Estadistica` que proporciona métodos para calcular estadísticas sobre las tareas. */
 export default class Estadistica {
-
+    /** * Calcula el porcentaje de tareas completadas en base a las listas de tareas incompletas y completadas. 
+    * @param {ListaTarea} listaIncompleta - La lista de tareas incompletas.
+    * @param {ListaTarea} listaCompleta - La lista de tareas completadas.
+    * @returns {number} - El porcentaje de tareas completadas. */
     public getPorcentajeCompletada(listaIncompleta: ListaTarea, listaCompleta: ListaTarea): number{
         let cantidadIncompletas = 0;
         let cantidadCompletas = 0;
