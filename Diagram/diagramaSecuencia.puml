@@ -12,9 +12,10 @@ deactivate Creador
 
  Aplicacion -> Tarea: agregarNuevaTarea(tarea)
  Tarea -> Lista: agregarNuevaTarea(tarea)
+activate Lista
  Tarea <-- Lista: agregarNuevaTarea(tarea) OK
  Aplicacion <-- Tarea: agregarNuevaTarea(tarea) OK
-
+deactivate Tarea
 
 
 
