@@ -2,22 +2,23 @@
 
 /' Opción 1: '/
 
-Aplicacion -> Creador: creadorT(titulo, desc, fecha, prio, cat, et)
+Aplicacion -> Creador: 1: creadorT(titulo, desc, fecha, prio, cat, et)
 activate Creador
 
 create Tarea
-Creador -> Tarea: crearNuevaTarea(titulo, desc, fecha, prio, cat, et)
+Creador -> Tarea: 2: crearNuevaTarea(titulo, desc, fecha, prio, cat, et)
 
 deactivate Creador
 
 activate Tarea
-Aplicacion -> Tarea: agregarNuevaTarea(tarea)
-Tarea -> Lista: agregarNuevaTarea(tarea)
-activate Lista
-Tarea <-- Lista: agregarNuevaTarea(tarea) OK
-Aplicacion <-- Tarea: agregarNuevaTarea(tarea) OK
+Aplicacion -> Tarea: 3: agregarNuevaTarea(tarea)
+Tarea -> Lista: 4: agregarNuevaTarea(tarea)
 
-Lista -> Tarea: delete(tarea)
+activate Lista
+Tarea <-- Lista: 5: agregarNuevaTarea(tarea)
+Aplicacion <-- Tarea: 6: agregarNuevaTarea(tarea)
+
+Lista -> Tarea: 7: delete(tarea)
 destroy Tarea
 
 
