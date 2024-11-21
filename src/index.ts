@@ -1,36 +1,49 @@
+import { LeerJSON } from "./archivos JSON/crearArchivo";
 import Aplicacion from "./clases/Aplicacion";
 import { CriterioBusqueda } from "./clases/auxiliar/busqueda/criterioBusqueda";
 import Tarea from "./clases/Tarea";
 import ListaTarea from "./Listas/ListaTarea";
 
-function main(){
+async function main(){
 
     let aplicacion = new Aplicacion();
-    let tarea:Tarea
-    let lista = new ListaTarea();
+    let tarea:Tarea;
+
+    let listaI = new ListaTarea();
+    let listaC = new ListaTarea();
 
     let criterioBusqueda = new CriterioBusqueda();
 
-    //creacion y carga de tareas
-    tarea = aplicacion.creardorT("Titulo5", "tarea de prueba 5", 19801015, 2, "Persona", "etiquetas genericas");
-    aplicacion.agregarNuevaTarea(tarea);
-    
-    tarea = aplicacion.creardorT("Titulo2", "tarea de prueba 2", 20200513, 1, "Automovil", "etiquetas genericas");
-    aplicacion.agregarNuevaTarea(tarea);
-    
-    tarea = aplicacion.creardorT("Titulo8", "tarea de prueba 8", 19990201, 0, "Comida", "etiquetas genericas");
-    aplicacion.agregarNuevaTarea(tarea);
-    
-    lista = aplicacion.getListaDeTareasIncompletas();
+    let cargarJSON = new LeerJSON()
 
+    listaI = await cargarJSON.listaTareasIncompleta();
+
+    //creacion y carga de tareas
+    tarea = aplicacion.creardorT("Titulo55", "tarea de prueba 55", 19801015, 2, "Persona", "etiquetas genericas");
+    aplicacion.agregarNuevaTarea(tarea);
     
+    tarea = aplicacion.creardorT("Titulo22", "tarea de prueba 22", 20200513, 1, "Automovil", "etiquetas genericas");
+    aplicacion.agregarNuevaTarea(tarea);
+    
+    tarea = aplicacion.creardorT("Titulo88", "tarea de prueba 88", 19990201, 0, "Comida", "etiquetas genericas");
+    aplicacion.agregarNuevaTarea(tarea);
+    
+    listaI = aplicacion.getListaDeTareasIncompletas();
+
+    console.log(listaI.imprimirTodo());
+    
+    /*
     aplicacion.setActionBusqueda("titulo");
 
     criterioBusqueda.titulo = "Titulo2"
 
-    tarea = aplicacion.buscadorFunc(lista, criterioBusqueda.toObjetoBusqueda());
+    tarea = aplicacion.buscadorFunc(listaI, criterioBusqueda.toObjetoBusqueda());
 
-    aplicacion.ordenarFunc(lista, "titulo"); 
+    aplicacion.ordenarFunc(listaI, "titulo");
+*/
+
+
+    
 }
 
 main();
