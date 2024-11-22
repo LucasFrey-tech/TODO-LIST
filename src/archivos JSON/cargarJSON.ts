@@ -3,7 +3,7 @@ import { InterfazCrear } from "./InterfazCrear";
 import path from "path";
 import Tarea from "../clases/Tarea";
 
-export default class CargarArchivo implements InterfazCrear {
+export default class CargarJSON implements InterfazCrear {
 
     public crearListaIncompleta(tarea: Tarea): void {
         const file: CustomFileClass = new CustomFileClass();

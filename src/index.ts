@@ -1,4 +1,4 @@
-import { LeerJSON } from "./archivos JSON/crearArchivo";
+import { LeerJSON } from "./archivos JSON/leerJSON";
 import Aplicacion from "./clases/Aplicacion";
 import { CriterioBusqueda } from "./clases/auxiliar/busqueda/criterioBusqueda";
 import Tarea from "./clases/Tarea";

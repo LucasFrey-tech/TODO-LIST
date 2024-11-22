@@ -23,22 +23,6 @@ export class LeerJSON implements InterfazLeerJSON{
         // Parsear el JSON
         const jsonData = JSON.parse(parametro);
 
-        // Recorrer la lista y agregar las tareas
-        let nodoActual = jsonData.head;
-        while (nodoActual) {
-            const datosTarea = nodoActual._value;
-            tarea = new Tarea(
-                datosTarea.titulo,
-                datosTarea.descripcion,
-                datosTarea.fechaVec,
-                datosTarea.prioridad,
-                datosTarea.categoria,
-                datosTarea.etiqueta,
-            );
-            lista.push(tarea);
-            nodoActual = nodoActual._next; // Avanzar al siguiente nodo
-        }
-
         return lista;
     }
 
