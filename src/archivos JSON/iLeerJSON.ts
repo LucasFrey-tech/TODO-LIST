@@ -1,6 +1,6 @@
 import ListaTarea from "../Listas/ListaTarea";
 
-export interface InterfazLeerJSON {
+export interface iLeerJSON{
     listaTareasIncompleta(): Promise<ListaTarea>;
     listaTareasCompleta(): Promise<ListaTarea>;
 }

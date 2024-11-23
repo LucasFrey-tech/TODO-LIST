@@ -73,8 +73,8 @@ export default class Aplicacion {
      * Edita una tarea en la lista de tareas.
      * @param {Tarea} tarea - La tarea a editar.
      */
-    public editarUnaTarea(tarea: Tarea) {
-        this.editar.editarAvance(this.listaDeTareas, tarea, 100);
+    public editarUnaTarea(lista:ListaTarea, tarea:Tarea, valorNUEVO:any) {
+        this.editar.editarFechaVec(lista, tarea, valorNUEVO); 
     }
 
     /**
@@ -122,25 +122,6 @@ export default class Aplicacion {
         listaAux.clear();
         listaAux2.clear();
     }
-
-    /*
-    tarea 1
-    tarea 2 --> 100%
-    tarea 3 --> 100%
-    tarea 4
-
-    listaI[
-    tarea 1,
-    tarea 4
-    ]
-
-    listaC[
-    tarea 2
-    tarea 3
-
-    ]
-
-    */
 
     private decidirTipoBusqueda(actionBusqueda: string) {
 
