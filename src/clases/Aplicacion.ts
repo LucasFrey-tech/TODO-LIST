@@ -108,20 +108,39 @@ export default class Aplicacion {
     public cargarTareasCompletas(): void {
         let tarea: Tarea;
         let listaAux = this.listaDeTareas;
-        let listaAux2 = new ListaTarea;
+        let listaAux2 = new ListaTarea();
 
         while (listaAux.getHead()) {
             tarea = listaAux.pop();
             if(tarea.getAvance() === 100){
-                this.listaDeTareasCompletadas.insertOrdered(tarea);
+                this.listaDeTareasCompletadas.insertOrderedFecha(tarea);
             } else {
-                listaAux2.insertOrdered(tarea);
+                listaAux2.insertOrderedFecha(tarea);
             }
         }
         this.listaDeTareas = listaAux2;
         listaAux.clear();
         listaAux2.clear();
     }
+
+    /*
+    tarea 1
+    tarea 2 --> 100%
+    tarea 3 --> 100%
+    tarea 4
+
+    listaI[
+    tarea 1,
+    tarea 4
+    ]
+
+    listaC[
+    tarea 2
+    tarea 3
+
+    ]
+
+    */
 
     private decidirTipoBusqueda(actionBusqueda: string) {
 
