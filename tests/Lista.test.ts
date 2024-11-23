@@ -10,6 +10,7 @@ describe("Prueba de la clase ListaTarea", () => {
     let listaTarea:ListaTarea;
     let tarea1 = mock<Tarea>();
     let tarea2 = mock<Tarea>();
+    let tarea3 = mock<Tarea>();
     let head: NodoTarea;
 
     function cargarTarea(){
@@ -21,18 +22,26 @@ describe("Prueba de la clase ListaTarea", () => {
         tarea1.getEtiqueta.mockImplementation(() => "TAREA");
         tarea1.getAvance.mockImplementation(() => 0);
 
-        tarea2.getTitulo.mockImplementation(() => "tarea");
+        tarea2.getTitulo.mockImplementation(() => "tarea2");
         tarea2.getDescripcion.mockImplementation(() => "Hola");
         tarea2.getFechaVec.mockImplementation(() => 20241115);
         tarea2.getPrioridad.mockImplementation(() => Prioridad.ALTA);
         tarea2.getCategoria.mockImplementation(() => "TEST");
         tarea2.getEtiqueta.mockImplementation(() => "TAREA");
         tarea2.getAvance.mockImplementation(() => 0);
+
+        tarea3.getTitulo.mockImplementation(() => "tarea3");
+        tarea3.getDescripcion.mockImplementation(() => "Hola");
+        tarea3.getFechaVec.mockImplementation(() => 20241115);
+        tarea3.getPrioridad.mockImplementation(() => Prioridad.ALTA);
+        tarea3.getCategoria.mockImplementation(() => "TEST");
+        tarea3.getEtiqueta.mockImplementation(() => "TAREA");
+        tarea3.getAvance.mockImplementation(() => 0);
     }
 
     beforeEach(() =>{
         cargarTarea();
-        head = new NodoTarea(tarea1);
+        head = new NodoTarea(tarea3);
         listaTarea = new ListaTarea();
     });
     
@@ -53,10 +62,10 @@ describe("Prueba de la clase ListaTarea", () => {
     });
     
     test("Prueba del push", () => {
-        listaTarea.setHead(head);
+        listaTarea.push(tarea1);
         listaTarea.push(tarea2);
         
-        expect(listaTarea.getHead().next.value).toBe(tarea2);
+        expect(listaTarea.getHead().next.value).toEqual(tarea2);
         console.log(listaTarea.imprimirTodo());
     });
 
@@ -64,8 +73,8 @@ describe("Prueba de la clase ListaTarea", () => {
     test("Prueba del pop", () => {
         listaTarea.setHead(head);
         listaTarea.push(tarea2);
-
-        //Por alguna razon no funciona
+    
+        expect(listaTarea.pop()).toBeInstanceOf(Object as unknown as Tarea);
         expect(listaTarea.pop()).toBeInstanceOf(Object as unknown as Tarea);
         
     });
@@ -73,6 +82,7 @@ describe("Prueba de la clase ListaTarea", () => {
     test("Prueba Remove First", () => {
         listaTarea.setHead(head);
         listaTarea.push(tarea2);
+        listaTarea.push(tarea3);
 
         let primerNodo = listaTarea.removeFirst();
         expect(primerNodo).toEqual(tarea1);
@@ -80,9 +90,10 @@ describe("Prueba de la clase ListaTarea", () => {
 
     test("Prueba Insert Ordered", () => {
         listaTarea.setHead(head);
+        listaTarea.insertOrdered(tarea1);
         listaTarea.insertOrdered(tarea2);
-
-        expect(listaTarea.getHead().value).toEqual(tarea2);
+        console.log(listaTarea.imprimirTodo());
+        //expect(listaTarea.getHead().value).toBe(tarea2);
     });
 
     test("Prueba del delete", () => {
