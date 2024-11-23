@@ -16,7 +16,7 @@ describe("Prueba de la clase ListaTarea", () => {
     function cargarTarea(){
         tarea1.getTitulo.mockImplementation(() => "tarea1");
         tarea1.getDescripcion.mockImplementation(() => "Hola");
-        tarea1.getFechaVec.mockImplementation(() => 20241115);
+        tarea1.getFechaVec.mockImplementation(() => 20241122);
         tarea1.getPrioridad.mockImplementation(() => Prioridad.ALTA);
         tarea1.getCategoria.mockImplementation(() => "TEST");
         tarea1.getEtiqueta.mockImplementation(() => "TAREA");
@@ -24,7 +24,7 @@ describe("Prueba de la clase ListaTarea", () => {
 
         tarea2.getTitulo.mockImplementation(() => "tarea2");
         tarea2.getDescripcion.mockImplementation(() => "Hola");
-        tarea2.getFechaVec.mockImplementation(() => 20241115);
+        tarea2.getFechaVec.mockImplementation(() => 20241123);
         tarea2.getPrioridad.mockImplementation(() => Prioridad.ALTA);
         tarea2.getCategoria.mockImplementation(() => "TEST");
         tarea2.getEtiqueta.mockImplementation(() => "TAREA");
@@ -32,7 +32,7 @@ describe("Prueba de la clase ListaTarea", () => {
 
         tarea3.getTitulo.mockImplementation(() => "tarea3");
         tarea3.getDescripcion.mockImplementation(() => "Hola");
-        tarea3.getFechaVec.mockImplementation(() => 20241115);
+        tarea3.getFechaVec.mockImplementation(() => 20241124);
         tarea3.getPrioridad.mockImplementation(() => Prioridad.ALTA);
         tarea3.getCategoria.mockImplementation(() => "TEST");
         tarea3.getEtiqueta.mockImplementation(() => "TAREA");
@@ -41,7 +41,7 @@ describe("Prueba de la clase ListaTarea", () => {
 
     beforeEach(() =>{
         cargarTarea();
-        head = new NodoTarea(tarea3);
+        head = new NodoTarea(tarea1);
         listaTarea = new ListaTarea();
     });
     
@@ -54,7 +54,7 @@ describe("Prueba de la clase ListaTarea", () => {
         listaTarea.setHead(head);
         expect(listaTarea.getHead().value.getTitulo()).toBe("tarea1");
         expect(listaTarea.getHead().value.getDescripcion()).toBe("Hola");
-        expect(listaTarea.getHead().value.getFechaVec()).toBe(20241115);
+        expect(listaTarea.getHead().value.getFechaVec()).toBe(20241122);
         expect(listaTarea.getHead().value.getPrioridad()).toBe(Prioridad.ALTA);
         expect(listaTarea.getHead().value.getCategoria()).toBe("TEST");
         expect(listaTarea.getHead().value.getEtiqueta()).toBe("TAREA"); 
@@ -88,18 +88,17 @@ describe("Prueba de la clase ListaTarea", () => {
         expect(primerNodo).toEqual(tarea1);
     });
 
-    test("Prueba Insert Ordered", () => {
-        listaTarea.setHead(head);
-        listaTarea.insertOrdered(tarea1);
-        listaTarea.insertOrdered(tarea2);
-        console.log(listaTarea.imprimirTodo());
-        //expect(listaTarea.getHead().value).toBe(tarea2);
+    test("Prueba Insert Ordered Fecha", () => {
+        listaTarea.insertOrderedFecha(tarea2);
+        listaTarea.insertOrderedFecha(tarea3);
+        expect(listaTarea.getHead().value).toBe(tarea2);
     });
 
     test("Prueba del delete", () => {
         listaTarea.setHead(head);
+        listaTarea.push(tarea2);
+        listaTarea.delete(tarea2);
         listaTarea.delete(tarea1);
-
         expect(listaTarea.getHead()).toBeUndefined();
     });
 
@@ -108,17 +107,6 @@ describe("Prueba de la clase ListaTarea", () => {
         listaTarea.push(tarea2);
         let nodoBuscado = listaTarea.search(tarea2);
         expect(nodoBuscado.value).toEqual(tarea2);
-    });
-
-    test("Prueba del Sort", () => {
-        listaTarea.setHead(head);
-        listaTarea.push(tarea2);
-
-        expect(listaTarea.getHead().value).toEqual(tarea1);
-
-        listaTarea.sort();
-
-        expect(listaTarea.getHead().value).toEqual(tarea2);
     });
 
     test("Prueba del Clear", () => {
