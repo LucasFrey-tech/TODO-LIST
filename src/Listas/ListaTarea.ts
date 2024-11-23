@@ -93,16 +93,16 @@ export default class ListaTarea {
     }
 
     /**
-     * Inserta una tarea en la lista de manera ordenada.
+     * Inserta una tarea en la lista de manera ordenada for fecha.
      * @param {Tarea} value - La tarea a insertar.
      * @returns {NodoTarea} El nodo insertado.
      */
-    public insertOrdered(value: Tarea): NodoTarea {
+    public insertOrderedFecha(value: Tarea): NodoTarea {
         const node = new NodoTarea(value);
         let headAux = this.head;
         let previous: NodoTarea = undefined as unknown as NodoTarea;
 
-        while (headAux && headAux.value < value) {
+        while (headAux && headAux.value.getFechaVec() < value.getFechaVec()) {
             previous = headAux;
             headAux = headAux.next;
         }
@@ -150,21 +150,6 @@ export default class ListaTarea {
             headAux = headAux.next;
         }
         return headAux;
-    }
-
-    /**
-     * Ordena la lista de tareas.
-     */
-    public sort(): void {
-        let value: Tarea;
-        let ListaTareaux = new ListaTarea();
-
-        while (this.head) {
-            value = this.removeFirst();
-            ListaTareaux.insertOrdered(value);
-        }
-        this.head = ListaTareaux.head;
-        ListaTareaux.clear();
     }
 
     /**
