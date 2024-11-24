@@ -1,7 +1,6 @@
-import CargarArchivoJSON from "./archivos JSON/CargarJSON";
+import CargarArchivoJSON from "./archivos JSON/cargarJSON";
 import { LeerArchivoJSON } from "./archivos JSON/leerJSON";
 import Aplicacion from "./clases/Aplicacion";
-import BuscadorDeTarea from "./clases/auxiliar/busqueda/buscadarDeTarea";
 import { CriterioBusqueda } from "./clases/auxiliar/busqueda/criterioBusqueda";
 import EditarTarea from "./clases/auxiliar/editarTarea";
 import Tarea from "./clases/Tarea";
@@ -11,6 +10,9 @@ async function main(){
 
     let aplicacion = new Aplicacion();
     let tarea:Tarea;
+    let tarea1:Tarea;
+    let tarea2:Tarea;
+    let tarea3:Tarea;
 
     let editar = new EditarTarea();
 
@@ -22,20 +24,34 @@ async function main(){
     let leerJSON = new LeerArchivoJSON();
     let cargarJSON = new CargarArchivoJSON();
 
-
+/* creacion del archivo listaIncompleta.json
     //creacion y carga de tareas
-    tarea = aplicacion.creardorT("Titulo55", "tarea de prueba 55", 19801015, 2, "Persona", "etiquetas genericas");
-    cargarJSON.cargarListaIncompleta(tarea);
+    tarea1 = aplicacion.creardorT("Titulo55", "tarea de prueba 55", 19801015, 2, "Persona", "etiquetas genericas");
+    tarea2 = aplicacion.creardorT("Titulo22", "tarea de prueba 22", 20200513, 1, "Automovil", "etiquetas genericas");
+    tarea3 = aplicacion.creardorT("Titulo88", "tarea de prueba 88", 19990201, 0, "Comida", "etiquetas genericas");
     
-    tarea = aplicacion.creardorT("Titulo22", "tarea de prueba 22", 20200513, 1, "Automovil", "etiquetas genericas");
-    cargarJSON.cargarListaIncompleta(tarea);
     
-    tarea = aplicacion.creardorT("Titulo88", "tarea de prueba 88", 19990201, 0, "Comida", "etiquetas genericas");
-    cargarJSON.cargarListaIncompleta(tarea);
-   
+    cargarJSON.cargarListaIncompleta(tarea1);
+    cargarJSON.cargarListaIncompleta(tarea2);
+    cargarJSON.cargarListaIncompleta(tarea3);
+*/
     listaI = await leerJSON.listaTareasIncompleta();
 
-    console.log(listaI.imprimirTodo());
+    //console.log(listaI.imprimirTodo());
+
+    
+    aplicacion.setActionBusqueda("titulo");
+    //aplicacion.setActionBusqueda("fecha");
+
+    criterioBusqueda.titulo = "Titulo22" // valor a buscar
+
+    tarea = aplicacion.buscadorFunc(listaI, criterioBusqueda.toObjetoBusqueda());
+
+    //console.log(tarea);
+    //"Titulo22", "tarea de prueba 22", 20200513, 1, "Automovil", "etiquetas genericas"
+    
+    aplicacion.ordenarFunc(listaI, "titulo");
+    //console.log(listaI.imprimirTodo());
 
 }
 

@@ -137,7 +137,24 @@ package EstrategiasDeOrdenamiento{
     }
 }
 
+/' archicvos json
+package archivosJSON{
+    class CargarArchivoJSON{
+        + cargarListaIncompleta(tarea: Tarea)
+        + cargarListaCompleta(tarea: Tarea)
+    }
 
+    interface iLeerJSON{
+        listaTareasIncompleta(): Promise<ListaTarea>;
+        listaTareasCompleta(): Promise<ListaTarea>;
+    }
+    
+    class LeerArchivoJSON implements iLeerJSON{
+        + async listaTareasIncompleta(): Promise<ListaTarea>;
+        + async listaTareasCompleta(): Promise<ListaTarea>;
+    }
+}
+'/
 
 enum Prioridad{
     ALTA,
@@ -148,6 +165,7 @@ enum Prioridad{
 'relaciones
 Aplicacion *-- ListaTarea
 Aplicacion -l-> BuscadorDeTarea
+Aplicacion -l-> CriterioBusqueda
 Aplicacion -r-> OrdenamientoTarea
 Aplicacion -u- EditarTarea
 Aplicacion -u-> CrearTarea
@@ -162,10 +180,12 @@ BusquedaEstrategia <-* BuscadorDeTarea
 BusquedaEstrategia <.. BusquedaPorTitulo
 BusquedaEstrategia <.. BusquedaPorFecha
 
+objetoBusqueda ..> BusquedaEstrategia
+CriterioBusqueda -l-> objetoBusqueda
+
 OrdenamientoTarea *-> OrdenamientoEstrategia
 OrdenamientoEstrategia <.. OrdenarPorTitulo
 OrdenamientoEstrategia <.. OrdenarPorFecha
 OrdenamientoEstrategia <.. OrdenarPorPrioridad
-
 
 @enduml

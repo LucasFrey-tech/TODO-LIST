@@ -1,6 +1,5 @@
 @startuml Diagrama Secuencia
 
-/' Opción 1: '/
 
 Aplicacion -> Creador: 1: creadorT(titulo, desc, fecha, prio, cat, et)
 activate Creador
@@ -20,28 +19,5 @@ Aplicacion <-- Tarea: 6: agregarNuevaTarea(tarea)
 
 Lista -> Tarea: 7: delete(tarea)
 destroy Tarea
-
-
-/' Opción 2: 
-
-Aplicacion -> Creador: creadorT()
-activate Creador
-
-create Tarea
-Creador -> Tarea: crearNuevaTarea()
-deactivate Creador
-
-Aplicacion -> Lista: agregarNuevaTarea(tarea)
-activate Tarea
-
-activate Lista
-
-Lista -> Tarea: delete(tarea)
-
-deactivate Lista
-destroy Tarea
-
-'/
-
 
 @enduml
