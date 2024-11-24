@@ -36,7 +36,7 @@ export default class Tarea {
      * Obtiene el título de la tarea.
      * @returns {string} El título de la tarea.
      */
-    public getTitulo(): string {
+    public getTitulo(): string{
         return this.titulo;
     }
 

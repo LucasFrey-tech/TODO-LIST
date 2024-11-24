@@ -1,7 +1,7 @@
 import crearTarea from "../src/clases/auxiliar/crearTarea";
 import Tarea from "../src/clases/Tarea";
-import { mock } from 'jest-mock-extended';
 import { Prioridad } from "../src/Enum/Prioridad";
+import ValorNoEncontrado from "../src/excepciones/error";
 
 describe("Test Clase Creacion Tarea", () => {
 
@@ -20,5 +20,14 @@ describe("Test Clase Creacion Tarea", () => {
         expect(tarea.getPrioridad()).toBe(Prioridad.ALTA);
         expect(tarea.getCategoria()).toBe("TEST");
         expect(tarea.getEtiqueta()).toBe("TAREA");
+    });
+
+    it("Creo una tarea sin titulo, esperando un error", ()=>{
+        let tarea:Tarea;
+        try {
+            tarea = creadorTarea.crearNuevaTarea("", "Lanzamiento esperado", 20071010, Prioridad.ALTA, "TEST", "TAREA");       
+        } catch (error) {
+            expect(error).toBeInstanceOf(ValorNoEncontrado);
+        }
     });
 });

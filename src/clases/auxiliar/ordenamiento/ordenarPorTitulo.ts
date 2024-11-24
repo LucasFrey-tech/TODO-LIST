@@ -33,5 +33,5 @@ export default class OrdenarPorTitulo implements OrdenamientoEstrategia{
     
         // Establece la lista ordenada como la lista principal.
         lista.setHead(listaAux.getHead());
-    }  
+    }
 }
