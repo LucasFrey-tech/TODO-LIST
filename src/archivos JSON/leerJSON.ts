@@ -4,10 +4,14 @@ import ListaTarea from "../Listas/ListaTarea";
 import Tarea from "../clases/Tarea";
 import { iLeerJSON } from "./iLeerJSON";
 
-
+/**
+ * Clase `LeerArchivoJSON` se encarga de leer un archivo .json
+*/
 
 export class LeerArchivoJSON implements iLeerJSON{
-
+    /** 
+     * @returns {Tarea} - La lista de tareas incompletas con los valores leidos del .json.
+     */
     public async listaTareasIncompleta(): Promise<ListaTarea>{
         let lista = new ListaTarea();
         let tarea:Tarea;
@@ -33,6 +37,10 @@ export class LeerArchivoJSON implements iLeerJSON{
         file.close();
         return lista;
     }
+
+    /** 
+     * @returns {Tarea} - La lista de tareas completas con los valores leidos del .json.
+     */
 
     public async listaTareasCompleta(): Promise<ListaTarea>{
         let lista = new ListaTarea();
