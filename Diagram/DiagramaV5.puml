@@ -53,6 +53,16 @@ class NodoTarea{
 
 class ListaTarea{
     - head: NodoTarea;
+    + getHead()
+    + setHead(value: NodoTarea)
+    + push(value: Tarea): NodoTarea
+    + pop(): Tarea
+    + removeFirst(): Tarea
+    + insertOrderedFecha(value: Tarea): NodoTarea
+    + delete(value: Tarea): Tarea
+    + search(value: Tarea): NodoTarea
+    + clear(): void
+    + imprimirTodo(): void
 }
 
 class CrearTarea{
@@ -70,22 +80,35 @@ class EditarTarea{
 }
 
 interface BusquedaEstrategia{
-    + buscar(lista:ListaTarea, valor:any):Tarea
+    + buscar(lista:ListaTarea, valor:objetoBusqueda):Tarea
+}
+
+interface objetoBusqueda {
+    titulo?:string;
+    fecha?:number;
+}
+
+class CriterioBusqueda{
+    - _titulo?: string;
+    - _fecha?: number;
+
+    + gets&sets()
+    + toObjetoBusqueda(): objetoBusqueda
 }
 
 class BuscadorDeTarea {
     + setEstrategia(estrategia:BusquedaEstrategia):void
     - estrategia:BusquedaEstrategia
-    + buscar(lista:ListaTarea, valor:any):Tarea
+    + buscar(lista:ListaTarea, valor:objetoBusqueda):Tarea
 }
 package EstrategiasDeBusqueda {
 
     class BusquedaPorTitulo {
-        + buscar(lista:ListaTarea, valor:string):Tarea
+        + buscar(lista:ListaTarea, valor:objetoBusqueda):Tarea
     }
 
     class BusquedaPorFecha {
-        + buscar(lista:ListaTarea, valor:number):Tarea
+        + buscar(lista:ListaTarea, valor:objetoBusqueda):Tarea
     }
 }
 
