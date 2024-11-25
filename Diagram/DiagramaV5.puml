@@ -21,7 +21,10 @@ class Aplicacion{
     + getListaDeTareasIncompletas():ListaDeTarea
     + getListaDeTareasCompletas():ListaDeTarea
     + cargarTareasCompletas():void
+    - decidirTipoBusqueda(actionBusqueda: string)
+    + setActionBusqueda()
     + buscadorFunc(lista: ListaTarea, valor: any):void
+    - decidirTipoOrdenamiento(actionOrdenar: string);
     + ordenarFunc();
 }
 
