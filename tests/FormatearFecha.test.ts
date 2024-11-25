@@ -18,12 +18,13 @@ describe("Test de la clase formatearFecha.ts", ()=>{
         console.log(`Antes del formateo: ${fecha}\nDespues del formateo: ${formateo.convertirFecha(fecha).format('DD/MM/YYYY')}`);
     });
 
-    test('Probamos una fecha incorrecta', ()=>{
-        fecha = 20241502;
+    test('Probamos una fecha incorrecta', () => {
+        fecha = 20241552;
         try {
-            formateo.convertirFecha(fecha);           
+            formateo.convertirFecha(fecha);
         } catch (error) {
-            expect(error).toBeInstanceOf(ValorNoEncontrado);
+            expect(error).toBeInstanceOf(ValorNoEncontrado); 
+            expect(error.message).toBe("Fecha Incorrecta");
         }
     });
 });
