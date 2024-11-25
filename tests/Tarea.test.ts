@@ -73,4 +73,5 @@ describe("Test de la clase Tarea.ts", ()=>{
         tarea.setAvance(75);
         expect(tarea.getAvance()).toBe(75);
     });
+    
 });
