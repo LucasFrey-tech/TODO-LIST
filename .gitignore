@@ -132,9 +132,3 @@ dist
 # Package
 package-lock.json
 package.json
-
-# Jest
-jest.config.js
-
-# Config
-tsconfig.json
