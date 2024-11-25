@@ -23,7 +23,7 @@ export default class Aplicacion {
     private listaDeTareasCompletadas: ListaTarea;
 
     private creador: CrearTarea;
-    private editar: EditarTarea;
+    private editor: EditarTarea;
 
     protected contextoBusqueda: BuscadorDeTarea;
     protected actionBusqueda: string;
@@ -38,7 +38,7 @@ export default class Aplicacion {
         this.listaDeTareasCompletadas = new ListaTarea();
 
         this.creador = new CrearTarea();
-        this.editar = new EditarTarea();
+        this.editor = new EditarTarea();
 
         this.contextoBusqueda = new BuscadorDeTarea(new BusquedaPorTitulo());
         this.actionBusqueda = "";
@@ -73,9 +73,38 @@ export default class Aplicacion {
      * Edita una tarea en la lista de tareas.
      * @param {Tarea} tarea - La tarea a editar.
      */
-    public editarUnaTarea(lista:ListaTarea, tarea:Tarea, valorNUEVO:any) {
-        this.editar.editarFechaVec(lista, tarea, valorNUEVO); 
+/**
+ * `acciones` es un mapa de funciones que asocia las acciones que el usuario puede realizar
+ * (como editar el título, la descripción, etc.) con los métodos correspondientes en la clase `EditarTarea`.
+ * 
+ * - Se usa `Record` para definir que las claves son cadenas (acciones) y los valores son funciones que reciben
+ *   una lista, una tarea, y un valor.
+ * - Se usa `bind` para garantizar que las funciones de la clase `EditarTarea` mantengan su contexto
+ *   original al ser llamadas.
+ */
+public editarTarea(accion: string, lista: ListaTarea, tarea: Tarea, valor: any): void {
+    // Mapa de acciones disponibles
+    const acciones: Record<string, (lista: ListaTarea, tarea: Tarea, valor: any) => void> = {
+        titulo: this.editor.editarTitulo.bind(this.editor),
+        descripcion: this.editor.editarDescripcion.bind(this.editor),
+        fechavencimiento: this.editor.editarFechaVec.bind(this.editor),
+        prioridad: this.editor.editarPrioridad.bind(this.editor),
+        categoria: this.editor.editarCategoria.bind(this.editor),
+        etiqueta: this.editor.editarEtiqueta.bind(this.editor),
+        avance: this.editor.editarAvance.bind(this.editor),
+    };
+
+    // Normalizar la acción a minúsculas
+    const accionNormalizada = accion.toLowerCase();
+
+    // Ejecutar la acción correspondiente
+    const accionEditar = acciones[accionNormalizada];
+    if (accionEditar) {
+        accionEditar(lista, tarea, valor);
+    } else {
+        throw new ValorNoEncontrado("El parametro seleccionado es invalido");
     }
+}
 
     /**
      * Elimina una tarea de la lista de tareas.
