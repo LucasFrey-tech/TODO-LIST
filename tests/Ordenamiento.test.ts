@@ -12,8 +12,7 @@ describe("Test de la clase Ordenamiento", ()=>{
 
     let contexto: OrdenarTareas;
     let action: string;
-    
-    
+       
     let lista = new ListaTarea();
 
     let mockTarea1 = mock<Tarea>();
