@@ -7,16 +7,22 @@ class Aplicacion{
     - listaDeTareasCompletadas: ListaTarea;
 
     - creador: CrearTarea;
+    - editor: EditarTarea;
+
+    * contextoBusqueda: BuscadorDeTarea;
+    * actionBusqueda: string;
+    * contextoOrdenamiento: OrdenarTareas;
+
     
     + creardorT(titulo:string, descripcion:string, fecha:number, prioridad:Prioridad, categoria:string, etiqueta:string):Tarea
     + agregarNuevaTarea(nuevaTarea:Tarea)
-    + editarUnaTarea()
+    + editarTarea(accion: string, lista: ListaTarea, tarea: Tarea, valor: any): void
     + eliminarUnaTarea(tarea: Tarea):Tarea
     + getListaDeTareasIncompletas():ListaDeTarea
     + getListaDeTareasCompletas():ListaDeTarea
     + cargarTareasCompletas():void
     + buscadorFunc(lista: ListaTarea, valor: any):void
-    + ordenarFunc()
+    + ordenarFunc();
 }
 
 class Tarea{
