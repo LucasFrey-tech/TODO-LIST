@@ -1,4 +1,4 @@
-import {OPERATIONS} from "../file/types/file";
+import {OPERATIONS} from "stdio";
 import BaseError from "./base-error";
 
 export default class FileOpException extends BaseError {

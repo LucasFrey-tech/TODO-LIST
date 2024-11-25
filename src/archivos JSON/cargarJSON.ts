@@ -1,4 +1,4 @@
-import CustomFileClass from "../file/file";
+import { CustomFileClass } from "stdio";
 import path from "path";
 import Tarea from "../clases/Tarea";
 /**
