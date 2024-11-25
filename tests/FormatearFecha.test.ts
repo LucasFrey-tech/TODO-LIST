@@ -27,4 +27,5 @@ describe("Test de la clase formatearFecha.ts", ()=>{
             expect(error.message).toBe("Fecha Incorrecta");
         }
     });
+    
 });
