@@ -71,17 +71,18 @@ export default class Aplicacion {
 
     /**
      * Edita una tarea en la lista de tareas.
+     * @param {string} accion - La edicion a realizar
+     * @param {ListaTarea} lista - La lista que contiene la tarea a editar
      * @param {Tarea} tarea - La tarea a editar.
-     */
-/**
- * `acciones` es un mapa de funciones que asocia las acciones que el usuario puede realizar
- * (como editar el título, la descripción, etc.) con los métodos correspondientes en la clase `EditarTarea`.
- * 
- * - Se usa `Record` para definir que las claves son cadenas (acciones) y los valores son funciones que reciben
- *   una lista, una tarea, y un valor.
- * - Se usa `bind` para garantizar que las funciones de la clase `EditarTarea` mantengan su contexto
- *   original al ser llamadas.
- */
+     *
+     * `acciones` es un mapa de funciones que asocia las acciones que el usuario puede realizar
+     * (como editar el título, la descripción, etc.) con los métodos correspondientes en la clase `EditarTarea`.
+     * 
+     * - Se usa `Record` para definir que las claves son cadenas (acciones) y los valores son funciones que reciben
+     *   una lista, una tarea, y un valor.
+     * - Se usa `bind` para garantizar que las funciones de la clase `EditarTarea` mantengan su contexto
+     *   original al ser llamadas.
+    */
 public editarTarea(accion: string, lista: ListaTarea, tarea: Tarea, valor: any): void {
     // Mapa de acciones disponibles
     const acciones: Record<string, (lista: ListaTarea, tarea: Tarea, valor: any) => void> = {
