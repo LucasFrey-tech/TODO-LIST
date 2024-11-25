@@ -8,17 +8,22 @@ const mockOpen = jest.fn();
 const mockWriteToFile = jest.fn();
 const mockClose = jest.fn();
 
-jest.mock("../src/file/file", () => {
-    return jest.fn().mockImplementation(() => ({
-        open: mockOpen,
-        writeToFile: mockWriteToFile,
-        close: mockClose,
-    }));
+jest.mock("stdio", () => {
+    return {
+        CustomFileClass: jest.fn().mockImplementation(() => {
+            return {
+                open: mockOpen,
+                writeToFile: mockWriteToFile,
+                close: mockClose,
+            };
+        }),
+    };
 });
 
 
 describe("Test de la clase CargarArchivoJSON", ()=>{
 
+    let cargarArchivo:CargarArchivoJSON;
     let mockTarea: jest.Mocked<Tarea>;
 
 
@@ -37,13 +42,11 @@ describe("Test de la clase CargarArchivoJSON", ()=>{
 
     beforeEach(()=>{
         jest.clearAllMocks();
-        
+        cargarArchivo = new CargarArchivoJSON()
         mockTarea = tareaMock();
     });
 
     test("Agregar una tarea a listaIncompleta.json", ()=>{
-        const cargarArchivo = new CargarArchivoJSON();
-
         cargarArchivo.cargarListaIncompleta(mockTarea);
 
         expect(mockOpen).toHaveBeenCalledWith(path.resolve("listaIncompleta.json"), "a");
@@ -52,8 +55,6 @@ describe("Test de la clase CargarArchivoJSON", ()=>{
     });
 
     test("Agregar una tarea a listaCompleta.json", ()=>{
-        const cargarArchivo = new CargarArchivoJSON();
-
         mockTarea.setAvance(100);
 
         cargarArchivo.cargarListaCompleta(mockTarea);

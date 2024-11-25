@@ -19,7 +19,7 @@ describe("Test de la clase formatearFecha.ts", ()=>{
     });
 
     test('Probamos una fecha incorrecta', ()=>{
-        fecha = 99999999;
+        fecha = 20241502;
         try {
             formateo.convertirFecha(fecha);           
         } catch (error) {

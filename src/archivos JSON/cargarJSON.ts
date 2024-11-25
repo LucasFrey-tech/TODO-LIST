@@ -5,6 +5,9 @@ import Tarea from "../clases/Tarea";
  * Clase `CargarArchivoJSON` se encarga de cargar una tarea a un archivo .json
 */
 export default class CargarArchivoJSON{
+
+
+
     /** Carga una tarea incompleta a un archivo .json
      * @param {Tarea} tarea - La tarea que se va a escribir en un .json
      */
