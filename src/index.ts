@@ -37,6 +37,16 @@ async function main(){
 
     console.log(listaI.imprimirTodo());
 
+/* Edicion de tareas
+    criterioBusqueda.titulo = "titulo1"
+    let tareaNew = aplicacion.buscadorFunc(listaI, criterioBusqueda);
+
+    //opcion 1
+    //aplicacion.editarTarea("titulo", listaI, aplicacion.buscadorFunc(listaI, criterioBusqueda), "Nuevo Titulo")
+
+    //opcion 2
+    //aplicacion.editarTarea("titulo", listaI, tareaNew, "Nuevo Titulo")
+*/
 }
 
 main();
